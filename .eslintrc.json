@@ -1,0 +1,62 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "root": true,
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "react", "react-hooks"],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "comma-dangle": ["error", "only-multiline"],
+    "react/prop-types": "off",
+    "react/display-name": "off",
+    "@typescript-eslint/no-duplicate-imports": "warn",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/ban-ts-comment": "error",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-var-reqiures": "off",
+    "@typescript-eslint/indent": ["warn", 2],
+    "@typescript-eslint/semi": ["error", "never"],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-trailing-spaces": "warn",
+    "linebreak-style": "warn",
+    "no-duplicate-imports": "off",
+    "no-tabs": "warn",
+    "eol-last": 1,
+    "semi": [0, "never"],
+    "no-multiple-empty-lines": ["warn", { "max": 1, "maxEOF": 1 }],
+    "max-len": [
+      "warn",
+      {
+        "code": 80
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  }
+}
