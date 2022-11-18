@@ -4,9 +4,9 @@ import {
   Route,
 } from 'react-router-dom'
 
-import { Header } from '../Header'
-
 import { GlobalStyle } from '../../globalStyles'
+
+import { Header } from '../Header'
 import { Footer } from '../Footer'
 
 export const App = () => {
