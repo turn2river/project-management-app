@@ -1,22 +1,23 @@
 import {
   HeaderWrapper,
   HeaderButton,
-  LangSelect
+  LangSelect,
+  HeaderIcon
 } from './styled'
 
 export const Header = () => (
   <HeaderWrapper>
     <HeaderButton to='/temp'>
-      Edit profile
+      <HeaderIcon isSignOut />
     </HeaderButton>
     <HeaderButton to='/temp'>
-      Sign out
+      <HeaderIcon isCreateBoard />
     </HeaderButton>
     <HeaderButton  to='/temp'>
-      Create new board
+      <HeaderIcon isProfileEdit />
     </HeaderButton>
     <LangSelect>
-      Lang ph
+      <HeaderIcon isLangSelect />
     </LangSelect>
   </HeaderWrapper>
 )
