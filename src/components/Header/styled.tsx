@@ -10,39 +10,50 @@ export const HeaderWrapper = styled.header`
   padding: 0 20px;
 `
 
-export const HeaderButton = styled(NavLink)`
-  box-sizing: border-box;
-  padding: 5px 10px;
-  border-radius: 3px;
-  margin: 0 10px;
-  background-color: #0052CC;
-  border: 1px solid #0052CC;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-
-  &:hover {
-    border: 1px solid #0052CC;
-    background-color: #fff;
-    color: #0052CC;
-  }
-`
+export const HeaderButton = styled(NavLink)``
 
 // временная херня
-export const LangSelect = styled.div`
-    box-sizing: border-box;
-  padding: 5px 10px;
-  border-radius: 3px;
+export const LangSelect = styled.div``
+
+export type THeaderIcon = {
+  isSignIn?: boolean,
+  isSignOut?: boolean,
+  isProfileEdit?: boolean,
+  isLangSelect?: boolean,
+  isCreateBoard?: boolean,
+}
+
+export const HeaderIcon = styled.div<THeaderIcon>`
+  width: 30px;
+  height: 30px;
   margin: 0 10px;
-  background-color: #0052CC;
-  border: 1px solid #0052CC;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: ${({
+    isSignIn,
+    isSignOut,
+    isProfileEdit,
+    isLangSelect,
+    isCreateBoard}) => {
+    switch (true) {
+      case isSignIn:
+        return 'url(assets/icon_signin.svg);'
+      case isSignOut:
+        return 'url(assets/icon_signout.svg);'
+      case isProfileEdit:
+        return 'url(assets/icon_edit_profile.svg);'
+      case isCreateBoard:
+        return 'url(assets/icon_create_board.svg);'
+      case isLangSelect:
+        return 'url(assets/icon_language.svg);'
+      default:
+        return ''
+    }
+  }};
 
   &:hover {
-    border: 1px solid #0052CC;
-    background-color: #fff;
-    color: #0052CC;
+    transform: scale(1.1);
   }
 `
