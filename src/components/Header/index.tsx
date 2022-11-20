@@ -1,23 +1,33 @@
+import { useRef } from 'react'
 import {
   HeaderWrapper,
   HeaderButton,
   LangSelect,
-  HeaderIcon
+  HeaderIcon,
+  HeaderControls,
+  HeaderLogo,
+  HeaderLogoTitle,
+  HeaderLogoLink,
 } from './styled'
 
-export const Header = () => (
-  <HeaderWrapper>
-    <HeaderButton to='/temp'>
-      <HeaderIcon isSignOut />
-    </HeaderButton>
-    <HeaderButton to='/temp'>
-      <HeaderIcon isCreateBoard />
-    </HeaderButton>
-    <HeaderButton  to='/temp'>
-      <HeaderIcon isProfileEdit />
-    </HeaderButton>
-    <LangSelect>
-      <HeaderIcon isLangSelect />
-    </LangSelect>
-  </HeaderWrapper>
-)
+export const Header = () => {
+
+  const ref = useRef(null)
+  console.log(ref.current)
+  return (
+    <HeaderWrapper>
+      {/* сменить на роут */}
+      <HeaderLogoLink href="#">
+        <HeaderLogo src='assets/head_logo.svg' />
+        <HeaderLogoTitle>monkey</HeaderLogoTitle>
+      </HeaderLogoLink>
+      <HeaderControls>
+        <HeaderButton to='/test'>
+          <HeaderIcon isSignIn/>
+        </HeaderButton>
+        <HeaderIcon isLangSelect />
+      </HeaderControls>
+    </HeaderWrapper>
+  )
+}
+
