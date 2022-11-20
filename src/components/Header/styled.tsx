@@ -2,16 +2,35 @@ import styled from 'styled-components/macro'
 import { NavLink } from 'react-router-dom'
 
 export const HeaderWrapper = styled.header`
-  height: 50px;
-  border-bottom: 2px solid rgba(3, 3, 3, 0.1);
+  height: 85px;
+  border-bottom: 2px solid rgba(102, 112, 133, 0.5);
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding: 0 20px;
+  justify-content: space-between;
+`
+export const HeaderLogoLink = styled.a`
+  display: flex;
+  align-items: center;
+`
+
+export const HeaderLogo = styled.img`
+  width: 50px;
+`
+
+export const HeaderLogoTitle = styled.span`
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+  color: #7B61FF;
+  margin-left: 15px;
 `
 
 export const HeaderButton = styled(NavLink)``
 
+export const HeaderControls = styled.div`
+  display: flex;
+  align-items: center;
+`
 // временная херня
 export const LangSelect = styled.div``
 
@@ -24,13 +43,13 @@ export type THeaderIcon = {
 }
 
 export const HeaderIcon = styled.div<THeaderIcon>`
-  width: 30px;
-  height: 30px;
-  margin: 0 10px;
+  width: 25px;
+  height: 25px;
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  margin-left: 15px;
   background-image: ${({
     isSignIn,
     isSignOut,
@@ -57,3 +76,10 @@ export const HeaderIcon = styled.div<THeaderIcon>`
     transform: scale(1.1);
   }
 `
+
+export const Test = styled.img`
+  width: 30px;
+  height: 30px;
+  display: block;
+`
+

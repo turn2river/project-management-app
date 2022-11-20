@@ -1,36 +1,17 @@
 import {
   FooterWrapper,
-  Logo,
-  FooterLink,
+  RSLink,
   Contacts,
-  Year,
 } from './styled'
 
 export const Footer = () => (
   <FooterWrapper>
-    <a href="#" target='_blank'>
-      <Logo src="/assets/logo.png" alt="rss-logo" />
-    </a>
+    <RSLink
+      href='https://rs.school/'
+      target='_blank'
+    >rs school</RSLink>
     <Contacts>
-      <FooterLink
-        href='https://github.com/turn2river'
-        target='_blank'
-      >
-       Krylov Alexey
-      </FooterLink>
-      <FooterLink
-        href='https://github.com/PavelTitov16'
-        target='_blank'
-      >
-       Tsitou Pavel
-      </FooterLink>
-      <FooterLink
-        href='https://github.com/Bombamuerta'
-        target='_blank'
-      >
-        Farber Denis
-      </FooterLink>
+      MONKEY TEAM ©2022
     </Contacts>
-    <Year>2022</Year>
   </FooterWrapper>
 )
