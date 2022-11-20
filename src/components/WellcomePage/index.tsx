@@ -5,7 +5,7 @@ import {
   Header,
   SubHeader,
   HeaderColor,
-  DescritionHead,
+  DescriptionHead,
   AuthBlock,
   InputField,
   SignInButton,
@@ -27,10 +27,10 @@ export const WellcomePage = () => (
         monkeyjob has never been so SIMPLE
       </SubHeader>
     </MainTitle>
-    <DescritionHead>
+    <DescriptionHead>
       A project management application<br/>
       to improve your workflow.
-    </DescritionHead>
+    </DescriptionHead>
     <AuthBlock>
       <InputField placeholder='login'/>
       <InputField placeholder='password'/>

@@ -50,7 +50,7 @@ export const SubHeader = styled.h3`
   line-height: 100%;
 `
 
-export const DescritionHead = styled.h3`
+export const DescriptionHead = styled.h3`
   font-weight: 700;
   font-size: 20px;
   text-transform: uppercase;
