@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -33,5 +33,22 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
   }
+`
 
+export const customScrollbar = css`
+  ::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 50%;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #fff;
+    box-shadow: inset 1px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #667085;
+    border-radius: 2px;
+  }
 `
