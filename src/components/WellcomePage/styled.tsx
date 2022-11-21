@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro'
+import styled, { css } from 'styled-components/macro'
 
 export const PageContainer = styled.main`
   width: 100%;
@@ -130,17 +130,34 @@ export const SignUpNow = styled(BreadCrumbs)`
   color: #7B61FF;
   cursor: pointer;
 `
+type TIconVisibility= {
+  iconType: boolean,
+  isVisible: boolean,
+}
 
-export const IconVisibility = styled.div<{ isVisible: boolean}>`
-  width: 20px;
-  height: 20px;
-  background-image: url(assets/icon_visibility.svg);
+export const IconVisibility = styled.div<TIconVisibility>`
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
   position: absolute;
   top: 50%;
-  right: 10px;
   transform: translateY(-50%);
-  display: ${({ isVisible }) => (isVisible ? 'block' : 'none')}
+  display: ${({ isVisible }) => (isVisible ? 'block' : 'none')};
+  
+  ${({ iconType }) => (
+    iconType
+      ? css`
+        background-image: url(assets/icon_visible.svg);
+        width: 20px;
+        height: 20px;
+        right: 10px;
+      `
+      : css`
+        background-image: url(assets/icon_not_visible.svg);
+        width: 22px;
+        height: 22px;
+        right: 9px;
+      `
+  )};
 `

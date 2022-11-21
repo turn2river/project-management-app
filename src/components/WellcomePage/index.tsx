@@ -20,6 +20,7 @@ import {
 export const WellcomePage = () => {
 
   const [inputType, setInputType] = useState(false)
+  const [iconType, setIconType] = useState(true)
   const [passwordValue, setPasswordValue] = useState('')
 
   const handlePassword = (e: BaseSyntheticEvent) => {
@@ -28,6 +29,9 @@ export const WellcomePage = () => {
 
   const toggleShowPassword = () => {
     setInputType(!inputType)
+    if (passwordValue !== '') {
+      setIconType(!iconType)
+    }
   }
 
   return (
@@ -60,6 +64,7 @@ export const WellcomePage = () => {
           <IconVisibility
             onClick={toggleShowPassword}
             isVisible={passwordValue !== ''}
+            iconType={iconType}
           />
         </InputBlock>
         <SignInButton>
