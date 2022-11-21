@@ -1,3 +1,4 @@
+import { isVisible } from '@testing-library/user-event/dist/utils'
 import styled from 'styled-components/macro'
 
 export const PageContainer = styled.main`
@@ -64,6 +65,12 @@ export const AuthBlock = styled.div`
   flex-direction: column;
   align-items: center;
 `
+export const InputBlock = styled.div`
+  position: relative;
+  width: 320px;
+  height: 43px;
+  margin-bottom: 20px;
+`
 
 export const InputField = styled.input`
   width: 320px;
@@ -123,4 +130,18 @@ export const BreadCrumbs = styled.span`
 export const SignUpNow = styled(BreadCrumbs)`
   color: #7B61FF;
   cursor: pointer;
+`
+
+export const IconVisibility = styled.div<{ isVisible: boolean}>`
+  width: 20px;
+  height: 20px;
+  background-image: url(assets/icon_visibility.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  display: ${({ isVisible }) => (isVisible ? 'block' : 'none')}
 `
