@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro'
+import styled, { css } from 'styled-components/macro'
 
 export const PageContainer = styled.main`
   width: 100%;
@@ -64,6 +64,12 @@ export const AuthBlock = styled.div`
   flex-direction: column;
   align-items: center;
 `
+export const InputBlock = styled.div`
+  position: relative;
+  width: 320px;
+  height: 43px;
+  margin-bottom: 20px;
+`
 
 export const InputField = styled.input`
   width: 320px;
@@ -123,4 +129,35 @@ export const BreadCrumbs = styled.span`
 export const SignUpNow = styled(BreadCrumbs)`
   color: #7B61FF;
   cursor: pointer;
+`
+type TIconVisibility= {
+  iconType: boolean,
+  isVisible: boolean,
+}
+
+export const IconVisibility = styled.div<TIconVisibility>`
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: ${({ isVisible }) => (isVisible ? 'block' : 'none')};
+  
+  ${({ iconType }) => (
+    iconType
+      ? css`
+        background-image: url(assets/icon_visible.svg);
+        width: 20px;
+        height: 20px;
+        right: 10px;
+      `
+      : css`
+        background-image: url(assets/icon_not_visible.svg);
+        width: 22px;
+        height: 22px;
+        right: 9px;
+      `
+  )};
 `

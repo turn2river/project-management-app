@@ -33,6 +33,10 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
   }
+
+  input[type='password'] {
+    letter-spacing: 3px;
+  }
 `
 
 export const customScrollbar = css`
