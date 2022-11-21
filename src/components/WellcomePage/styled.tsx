@@ -1,4 +1,3 @@
-import { isVisible } from '@testing-library/user-event/dist/utils'
 import styled from 'styled-components/macro'
 
 export const PageContainer = styled.main`
