@@ -3,7 +3,10 @@ import {
   TeamLabel,
   TeamLogo,
   TeamBlock,
+  MembersList,
 } from './styled'
+
+import { TeamMember } from './TeamMember'
 
 export const TeamPage = () => (
   <PageContainer>
@@ -13,5 +16,8 @@ export const TeamPage = () => (
         MONKEY TEAM
       </TeamLabel>
     </TeamBlock>
+    <MembersList>
+      <TeamMember />
+    </MembersList>
   </PageContainer>
 )

@@ -24,3 +24,8 @@ export const TeamBlock = styled.div`
 export const TeamLogo = styled.img`
   width: 62px;
 `
+
+export const MembersList = styled.div`
+  display: flex;
+  gap: 100px;
+`
