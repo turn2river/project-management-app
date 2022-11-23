@@ -1,4 +1,6 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
+
 import {
   HeaderWrapper,
   HeaderButton,
@@ -16,11 +18,12 @@ export const Header = () => {
   console.log(ref.current)
   return (
     <HeaderWrapper>
-      {/* сменить на роут */}
-      <HeaderLogoLink href="#">
-        <HeaderLogo src='assets/head_logo.svg' />
-        <HeaderLogoTitle>monkey</HeaderLogoTitle>
-      </HeaderLogoLink>
+      <Link to="/">
+        <HeaderLogoLink href="#">
+          <HeaderLogo src='assets/head_logo.svg' />
+          <HeaderLogoTitle>monkey</HeaderLogoTitle>
+        </HeaderLogoLink>
+      </Link>
       <HeaderControls>
         <HeaderButton to='/test'>
           <HeaderIcon isSignIn/>
