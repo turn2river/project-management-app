@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom'
-
 import {
   FooterWrapper,
   RSLink,
@@ -14,11 +12,9 @@ export const Footer = () => (
       target='_blank'
     >rs school</RSLink>
     <Contacts>
-      <Link to="/team">
-        <ContacLink>
+      <ContacLink to="/team">
           MONKEY TEAM ©2022
-        </ContacLink>
-      </Link>
+      </ContacLink>
     </Contacts>
   </FooterWrapper>
 )

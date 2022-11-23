@@ -1,5 +1,4 @@
 import { useRef } from 'react'
-import { Link } from 'react-router-dom'
 
 import {
   HeaderWrapper,
@@ -9,6 +8,7 @@ import {
   HeaderControls,
   HeaderLogo,
   HeaderLogoTitle,
+  HeaderLogoLink,
 } from './styled'
 
 export const Header = () => {
@@ -17,10 +17,10 @@ export const Header = () => {
   console.log(ref.current)
   return (
     <HeaderWrapper>
-      <Link to="/">
+      <HeaderLogoLink to="/">
         <HeaderLogo src='assets/head_logo.svg' />
         <HeaderLogoTitle>monkey</HeaderLogoTitle>
-      </Link>
+      </HeaderLogoLink>
       <HeaderControls>
         <HeaderButton to='/test'>
           <HeaderIcon isSignIn/>

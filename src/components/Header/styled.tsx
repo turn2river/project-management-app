@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 export const HeaderWrapper = styled.header`
   height: 85px;
@@ -7,6 +7,11 @@ export const HeaderWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+`
+
+export const HeaderLogoLink = styled(Link)`
+  display: flex;
+  align-items: center;
 `
 
 export const HeaderLogo = styled.img`
@@ -72,10 +77,3 @@ export const HeaderIcon = styled.div<THeaderIcon>`
     transform: scale(1.1);
   }
 `
-
-export const Test = styled.img`
-  width: 30px;
-  height: 30px;
-  display: block;
-`
-
