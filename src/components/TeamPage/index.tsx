@@ -1,19 +1,17 @@
 import {
   PageContainer,
-  MainTitle,
-  Header,
-  HeaderColor,
+  TeamLabel,
+  TeamLogo,
+  TeamBlock,
 } from './styled'
 
 export const TeamPage = () => (
   <PageContainer>
-    <MainTitle>
-      <Header>
-              WELCOME TO
-      </Header>
-      <HeaderColor>
-              MONKEY TEAM!
-      </HeaderColor>
-    </MainTitle>
+    <TeamBlock>
+      <TeamLogo src='assets/head_logo.svg' />
+      <TeamLabel>
+        MONKEY TEAM
+      </TeamLabel>
+    </TeamBlock>
   </PageContainer>
 )

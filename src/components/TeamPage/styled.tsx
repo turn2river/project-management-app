@@ -9,21 +9,18 @@ export const PageContainer = styled.main`
   flex-direction: column;
 `
 
-export const MainTitle = styled.div`
-  display: grid;
-  grid-template-areas: 
-  'logo head head_color'
-  'logo subheader subheader';
-`
-
-export const Header = styled.div`
-  grid-area: head;
+export const TeamLabel = styled.div`
   font-weight: 700;
   font-size: 42px;
-  line-height: 100%;
+  line-height: 49px;
+  color: #7B61FF;
+`
+export const TeamBlock = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 9px;
 `
 
-export const HeaderColor = styled(Header)`
-  grid-area: head_color;
-  color: #7B61FF;
+export const TeamLogo = styled.img`
+  width: 62px;
 `
