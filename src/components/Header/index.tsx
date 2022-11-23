@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+
 import {
   HeaderWrapper,
   HeaderButton,
@@ -16,8 +17,7 @@ export const Header = () => {
   console.log(ref.current)
   return (
     <HeaderWrapper>
-      {/* сменить на роут */}
-      <HeaderLogoLink href="#">
+      <HeaderLogoLink to="/">
         <HeaderLogo src='assets/head_logo.svg' />
         <HeaderLogoTitle>monkey</HeaderLogoTitle>
       </HeaderLogoLink>
@@ -30,4 +30,3 @@ export const Header = () => {
     </HeaderWrapper>
   )
 }
-

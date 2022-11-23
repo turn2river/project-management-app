@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro'
+import { Link } from 'react-router-dom'
 
 export const FooterWrapper = styled.footer`
   width: 100%;
@@ -35,7 +36,7 @@ export const ContactsPopup = styled.div`
   padding: 5px 10px;
 `
 
-export const ContacLink = styled.a`
+export const ContacLink = styled(Link)`
   margin: 5px 0;
 
   &:hover {
