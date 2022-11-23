@@ -12,6 +12,14 @@ export const MemberPhoto = styled.div`
   height: 150px;
   border: 1px solid #667085;
   border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+`
+
+export const MemberImage = styled.img`
+  width: 100%;
+  flex-shrink: 0;
 `
 
 export const MemberName = styled.div`

@@ -3,12 +3,29 @@ import {
   MemberPhoto,
   MemberName,
   MemberDescription,
+  MemberImage,
 } from './styled'
 
-export const TeamMember = () => (
+type Props = {
+  data: {
+    photo_path: string;
+    name: string;
+    description: string;
+  };
+}
+
+export const TeamMember = ({
+  data: {
+    photo_path,
+    name,
+    description,
+  },
+}: Props) => (
   <MemberBlock>
-    <MemberPhoto></MemberPhoto>
-    <MemberName></MemberName>
-    <MemberDescription></MemberDescription>
+    <MemberPhoto>
+      <MemberImage src={photo_path} />
+    </MemberPhoto>
+    <MemberName>{name}</MemberName>
+    <MemberDescription>{description}</MemberDescription>
   </MemberBlock>
 )

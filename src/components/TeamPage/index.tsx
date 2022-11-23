@@ -7,6 +7,7 @@ import {
 } from './styled'
 
 import { TeamMember } from './TeamMember'
+import { dataMembers } from './dataMembers'
 
 export const TeamPage = () => (
   <PageContainer>
@@ -17,7 +18,9 @@ export const TeamPage = () => (
       </TeamLabel>
     </TeamBlock>
     <MembersList>
-      <TeamMember />
+      {dataMembers.map((member) =>
+        <TeamMember key={member.id} data={member} />
+      )}
     </MembersList>
   </PageContainer>
 )
