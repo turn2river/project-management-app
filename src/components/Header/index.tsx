@@ -9,7 +9,6 @@ import {
   HeaderControls,
   HeaderLogo,
   HeaderLogoTitle,
-  HeaderLogoLink,
 } from './styled'
 
 export const Header = () => {
@@ -19,10 +18,8 @@ export const Header = () => {
   return (
     <HeaderWrapper>
       <Link to="/">
-        <HeaderLogoLink href="#">
-          <HeaderLogo src='assets/head_logo.svg' />
-          <HeaderLogoTitle>monkey</HeaderLogoTitle>
-        </HeaderLogoLink>
+        <HeaderLogo src='assets/head_logo.svg' />
+        <HeaderLogoTitle>monkey</HeaderLogoTitle>
       </Link>
       <HeaderControls>
         <HeaderButton to='/test'>

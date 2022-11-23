@@ -8,10 +8,6 @@ export const HeaderWrapper = styled.header`
   align-items: center;
   justify-content: space-between;
 `
-export const HeaderLogoLink = styled.a`
-  display: flex;
-  align-items: center;
-`
 
 export const HeaderLogo = styled.img`
   width: 50px;
