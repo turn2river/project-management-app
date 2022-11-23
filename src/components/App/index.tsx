@@ -10,6 +10,7 @@ import { Header } from '../Header'
 import { Footer } from '../Footer'
 import { WellcomePage } from '../WellcomePage'
 import { MainPage } from '../MainPage'
+import { TeamPage } from '../TeamPage'
 
 export const App = () => {
   return (
@@ -25,6 +26,10 @@ export const App = () => {
           <Route
             path="/main"
             element={<MainPage />}
+          />
+          <Route
+            path="/team"
+            element={<TeamPage />}
           />
         </Routes>
         <Footer />
