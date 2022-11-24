@@ -32,6 +32,7 @@ export const HeaderControls = styled.div`
   display: flex;
   align-items: center;
 `
+
 // временная херня
 export const LangSelect = styled.div``
 

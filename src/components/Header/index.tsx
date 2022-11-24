@@ -1,9 +1,9 @@
-import { useRef } from 'react'
+import { Fragment } from 'react'
+import { Link } from 'react-router-dom'
 
 import {
   HeaderWrapper,
   HeaderButton,
-  LangSelect,
   HeaderIcon,
   HeaderControls,
   HeaderLogo,
@@ -11,20 +11,31 @@ import {
   HeaderLogoLink,
 } from './styled'
 
-export const Header = () => {
+type THeader = {
+  isLoggedIn: boolean,
+}
 
-  const ref = useRef(null)
-  console.log(ref.current)
+export const Header = ({ isLoggedIn }: THeader) => {
+
   return (
     <HeaderWrapper>
       <HeaderLogoLink to="/">
         <HeaderLogo src='assets/head_logo.svg' />
         <HeaderLogoTitle>monkey</HeaderLogoTitle>
       </HeaderLogoLink>
+      {/* temp link
+      <Link to='/main'> to /main</Link> */}
       <HeaderControls>
-        <HeaderButton to='/test'>
-          <HeaderIcon isSignIn/>
-        </HeaderButton>
+        { isLoggedIn && (
+          <Fragment>
+            <HeaderButton to='/test'>
+              <HeaderIcon isSignOut/>
+            </HeaderButton>
+            <HeaderButton to='/test'>
+              <HeaderIcon isProfileEdit/>
+            </HeaderButton>
+          </Fragment>
+        )}
         <HeaderIcon isLangSelect />
       </HeaderControls>
     </HeaderWrapper>

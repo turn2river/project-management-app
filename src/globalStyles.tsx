@@ -23,6 +23,10 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
+  button {
+    cursor: pointer;
+  }
+
   button, input {
     outline: none;
     border: none;
