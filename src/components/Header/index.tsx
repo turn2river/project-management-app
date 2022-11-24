@@ -1,9 +1,8 @@
-import { useRef } from 'react'
+import { Fragment } from 'react'
 
 import {
   HeaderWrapper,
   HeaderButton,
-  LangSelect,
   HeaderIcon,
   HeaderControls,
   HeaderLogo,
@@ -11,10 +10,13 @@ import {
   HeaderLogoLink,
 } from './styled'
 
-export const Header = () => {
+type THeader = {
+  isLoggedIn: boolean,
+  handleLogout: () => void
+}
 
-  const ref = useRef(null)
-  console.log(ref.current)
+export const Header = ({ isLoggedIn, handleLogout }: THeader) => {
+
   return (
     <HeaderWrapper>
       <HeaderLogoLink to="/">
@@ -22,9 +24,17 @@ export const Header = () => {
         <HeaderLogoTitle>monkey</HeaderLogoTitle>
       </HeaderLogoLink>
       <HeaderControls>
-        <HeaderButton to='/test'>
-          <HeaderIcon isSignIn/>
-        </HeaderButton>
+        { isLoggedIn && (
+          <Fragment>
+            <HeaderIcon
+              isSignOut
+              onClick={handleLogout}
+            />
+            <HeaderButton to='/test'>
+              <HeaderIcon isProfileEdit/>
+            </HeaderButton>
+          </Fragment>
+        )}
         <HeaderIcon isLangSelect />
       </HeaderControls>
     </HeaderWrapper>

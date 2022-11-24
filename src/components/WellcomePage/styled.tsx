@@ -105,7 +105,6 @@ export const SignInButton = styled.button`
   letter-spacing: -0.02em;
   color: #fff;
   text-transform: capitalize;
-  cursor: pointer;
   margin-bottom: 20px;
 
   &:hover {

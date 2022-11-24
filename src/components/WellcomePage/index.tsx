@@ -17,7 +17,11 @@ import {
   IconVisibility,
 } from './styled'
 
-export const WellcomePage = () => {
+type TWelcomePage = {
+  handleLogin: () => void
+}
+
+export const WellcomePage = ({ handleLogin }: TWelcomePage) => {
 
   const [inputType, setInputType] = useState(false)
   const [iconType, setIconType] = useState(true)
@@ -67,7 +71,7 @@ export const WellcomePage = () => {
             iconType={iconType}
           />
         </InputBlock>
-        <SignInButton>
+        <SignInButton onClick={handleLogin}>
           <span>sign in</span>
         </SignInButton>
         <BreadCrumbs>Don&#8217;t have an account?</BreadCrumbs>

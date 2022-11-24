@@ -32,6 +32,7 @@ export const HeaderControls = styled.div`
   display: flex;
   align-items: center;
 `
+
 // временная херня
 export const LangSelect = styled.div``
 
@@ -51,6 +52,7 @@ export const HeaderIcon = styled.div<THeaderIcon>`
   background-size: cover;
   background-position: center;
   margin-left: 15px;
+  cursor: pointer;
   background-image: ${({
     isSignIn,
     isSignOut,
@@ -59,6 +61,8 @@ export const HeaderIcon = styled.div<THeaderIcon>`
     isCreateBoard}) => {
     switch (true) {
       case isSignIn:
+        // вероятно нам вобще нахер не нужна
+        // иконка sign in
         return 'url(assets/icon_signin.svg);'
       case isSignOut:
         return 'url(assets/icon_signout.svg);'

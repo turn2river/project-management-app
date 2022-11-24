@@ -3,17 +3,47 @@ import {
   MainTitle,
   Header,
   HeaderColor,
+  ProjectsBlock,
+  ProjectCard,
+  ProjectOptions,
+  CardHeader,
+  ProjectDesc,
+  AddNewProject,
+  ProjectName,
 } from './styled'
+
+import {
+  Logo,
+  DescriptionHead 
+} from '../WellcomePage/styled'
 
 export const MainPage = () => (
   <PageContainer>
     <MainTitle>
+      <Logo />
       <Header>
-            WELCOME TO
+        Hey,
       </Header>
       <HeaderColor>
-            YOUR BOARDS
+        username
       </HeaderColor>
     </MainTitle>
+    <DescriptionHead>SElect oR create a project</DescriptionHead>
+    <ProjectsBlock>
+      <ProjectCard>
+        <CardHeader>
+          <ProjectName>this is project name</ProjectName>
+          <ProjectOptions />
+        </CardHeader>
+        <ProjectDesc>
+         this is project description
+         Lorem, ipsum dolor sit amet
+         consectetur adipisicing elit. Distinctio, totam?
+        </ProjectDesc>
+      </ProjectCard>
+      <AddNewProject>
+        <span>+ Project</span>
+      </AddNewProject>
+    </ProjectsBlock>
   </PageContainer>
 )

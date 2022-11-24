@@ -18,9 +18,17 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: inherit;
   }
+  
+  p {
+    margin: 0;
+  }
 
   ul, li {
     list-style: none;
+  }
+
+  button {
+    cursor: pointer;
   }
 
   button, input {
