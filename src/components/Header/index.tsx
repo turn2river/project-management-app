@@ -1,5 +1,4 @@
 import { Fragment } from 'react'
-import { Link } from 'react-router-dom'
 
 import {
   HeaderWrapper,
@@ -13,9 +12,10 @@ import {
 
 type THeader = {
   isLoggedIn: boolean,
+  handleLogout: () => void
 }
 
-export const Header = ({ isLoggedIn }: THeader) => {
+export const Header = ({ isLoggedIn, handleLogout }: THeader) => {
 
   return (
     <HeaderWrapper>
@@ -23,14 +23,13 @@ export const Header = ({ isLoggedIn }: THeader) => {
         <HeaderLogo src='assets/head_logo.svg' />
         <HeaderLogoTitle>monkey</HeaderLogoTitle>
       </HeaderLogoLink>
-      {/* temp link
-      <Link to='/main'> to /main</Link> */}
       <HeaderControls>
         { isLoggedIn && (
           <Fragment>
-            <HeaderButton to='/test'>
-              <HeaderIcon isSignOut/>
-            </HeaderButton>
+            <HeaderIcon
+              isSignOut
+              onClick={handleLogout}
+            />
             <HeaderButton to='/test'>
               <HeaderIcon isProfileEdit/>
             </HeaderButton>

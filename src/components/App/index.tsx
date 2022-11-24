@@ -19,24 +19,30 @@ import { TeamPage } from '../TeamPage'
 export const App = () => {
   // временный стейт для логина юзера
   const [loggedIn, setLoggedIn] = useState(false)
-  const handleLogin = () => {
-    setLoggedIn(!loggedIn)
-  }
+  const handleLogin = () => setLoggedIn(!loggedIn)
 
+  const handleLogout = () => setLoggedIn(false)
+
+  // типа токен просрочен черех 5 мин, выкидываем на логин
+  setTimeout(() => setLoggedIn(false), 300000)
   console.log('logged in', loggedIn)
 
   return (
     <BrowserRouter>
       <GlobalStyle />
       <AppContainer>
-        <Header isLoggedIn={loggedIn} />
+        <Header
+          isLoggedIn={loggedIn}
+          handleLogout={handleLogout}
+        />
         <Routes>
-          {loggedIn ? (
-            <Route
-              path='/'
-              element={<Navigate to='main' />}
-            />
-          )
+          {loggedIn
+            ? (
+              <Route
+                path='/'
+                element={<Navigate to='main' />}
+              />
+            )
             : (
               <Route
                 path='main'

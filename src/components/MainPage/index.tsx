@@ -4,8 +4,12 @@ import {
   Header,
   HeaderColor,
   ProjectsBlock,
-  CreatedProject,
-  AddNewProject
+  ProjectCard,
+  ProjectOptions,
+  CardHeader,
+  ProjectDesc,
+  AddNewProject,
+  ProjectName,
 } from './styled'
 
 import {
@@ -26,8 +30,17 @@ export const MainPage = () => (
     </MainTitle>
     <DescriptionHead>SElect oR create a project</DescriptionHead>
     <ProjectsBlock>
-      <CreatedProject />
-      <CreatedProject />
+      <ProjectCard>
+        <CardHeader>
+          <ProjectName>this is project name</ProjectName>
+          <ProjectOptions />
+        </CardHeader>
+        <ProjectDesc>
+         this is project description
+         Lorem, ipsum dolor sit amet
+         consectetur adipisicing elit. Distinctio, totam?
+        </ProjectDesc>
+      </ProjectCard>
       <AddNewProject>
         <span>+ Project</span>
       </AddNewProject>
