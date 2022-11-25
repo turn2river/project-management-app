@@ -8,11 +8,12 @@ import { dataBoards } from '../../config/dataBoards'
 import { BoardComponent } from '../MainPage/BoardComponent'
 
 export const BoardPage = () => {
-  const { id } = useParams()
+  const { id: boardId } = useParams()
+  const currentBoard = dataBoards.find((board) => (board.id).toString() === boardId)
 
   return (
     <PageContainer>
-      {id}
+      <h1>{currentBoard?.description}</h1>
     </PageContainer>
   )
 }

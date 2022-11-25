@@ -8,6 +8,7 @@ import {
 
 type Props = {
   data: {
+    id: number
     name: string;
     description: string;
   };
@@ -15,6 +16,7 @@ type Props = {
 
 export const BoardComponent = ({
   data: {
+    id,
     name,
     description,
   },
