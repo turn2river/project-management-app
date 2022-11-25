@@ -7,6 +7,7 @@ export const ProjectCard = styled.div`
   border: 1px solid rgba(102, 112, 133, 0.5);
   border-radius: 8px;
   padding: 20px;
+  cursor: pointer;
 
   &:hover {
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
