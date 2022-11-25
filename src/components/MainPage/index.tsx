@@ -1,3 +1,5 @@
+import { Button } from '../Button'
+
 import {
   PageContainer,
   MainTitle,
@@ -8,13 +10,12 @@ import {
   ProjectOptions,
   CardHeader,
   ProjectDesc,
-  AddNewProject,
   ProjectName,
 } from './styled'
 
 import {
   Logo,
-  DescriptionHead 
+  DescriptionHead
 } from '../WellcomePage/styled'
 
 export const MainPage = () => (
@@ -41,9 +42,10 @@ export const MainPage = () => (
          consectetur adipisicing elit. Distinctio, totam?
         </ProjectDesc>
       </ProjectCard>
-      <AddNewProject>
-        <span>+ Project</span>
-      </AddNewProject>
+      <Button
+        text='+ project'
+        handleClick={() => {}}
+      />
     </ProjectsBlock>
   </PageContainer>
 )
