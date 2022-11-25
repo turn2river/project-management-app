@@ -3,17 +3,15 @@ import { useState } from 'react'
 import { Button } from '../Button'
 import { Modal } from '../Modal'
 
+import { BoardComponent } from './BoardComponent'
+import { dataBoards } from '../../config/dataBoards'
+
 import {
   PageContainer,
   MainTitle,
   Header,
   HeaderColor,
   ProjectsBlock,
-  ProjectCard,
-  ProjectOptions,
-  CardHeader,
-  ProjectDesc,
-  ProjectName,
 } from './styled'
 
 import {
@@ -31,8 +29,7 @@ export const MainPage = () => {
         isOpen={openModal}
         toggleModal={toggleModal}
       >
-        <span>сюда вставляем нужную форму...
-          короче все впизду меня все заебало.</span>
+        <span>сюда вставляем нужную форму...</span>
       </Modal>
       <MainTitle>
         <Logo />
@@ -45,20 +42,12 @@ export const MainPage = () => {
       </MainTitle>
       <DescriptionHead>SElect oR create a project</DescriptionHead>
       <ProjectsBlock>
-        <ProjectCard>
-          <CardHeader>
-            <ProjectName>this is project name</ProjectName>
-            <ProjectOptions />
-          </CardHeader>
-          <ProjectDesc>
-         this is project description
-         Lorem, ipsum dolor sit amet
-         consectetur adipisicing elit. Distinctio, totam?
-          </ProjectDesc>
-        </ProjectCard>
+        {dataBoards.map((board) =>
+          <BoardComponent key={board.id} data={board} />
+        )}
         <Button
           text='+ project'
-          handleClick={toggleModal}
+          handleClick={() => {}}
         />
       </ProjectsBlock>
     </PageContainer>
