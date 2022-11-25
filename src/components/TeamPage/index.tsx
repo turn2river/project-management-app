@@ -7,7 +7,7 @@ import {
 } from './styled'
 
 import { TeamMember } from './TeamMember'
-import { dataMembers } from './dataMembers'
+import { dataMembers } from '../../config/dataMembers'
 
 export const TeamPage = () => (
   <PageContainer>

@@ -22,7 +22,7 @@ export const MemberImage = styled.img`
   flex-shrink: 0;
 `
 
-export const MemberName = styled.div`
+export const MemberName = styled.a`
   width: 200px;
   height: 50px;
   background: #FFFFFF;
@@ -35,6 +35,11 @@ export const MemberName = styled.div`
   font-size: 20px;
   line-height: 100%;
   color: #667085;
+  cursor: pointer;
+
+  &:hover {
+    color: #000;
+  } 
 `
 
 export const MemberDescription = styled.div`
