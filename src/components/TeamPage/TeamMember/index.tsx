@@ -11,6 +11,7 @@ type Props = {
     photo_path: string;
     name: string;
     description: string;
+    github: string;
   };
 }
 
@@ -19,13 +20,19 @@ export const TeamMember = ({
     photo_path,
     name,
     description,
+    github,
   },
 }: Props) => (
   <MemberBlock>
     <MemberPhoto>
       <MemberImage src={photo_path} />
     </MemberPhoto>
-    <MemberName>{name}</MemberName>
+    <MemberName
+      href={github}
+      target='_blank'
+    >
+      {name}
+    </MemberName>
     <MemberDescription>{description}</MemberDescription>
   </MemberBlock>
 )
