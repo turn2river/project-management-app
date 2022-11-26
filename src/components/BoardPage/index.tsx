@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { PageContainer } from './styled'
 
 import { dataBoards } from '../../config/dataBoards'
-import { BoardComponent } from '../MainPage/BoardComponent'
+import { BoardColumn } from '../BoardColumn'
 
 export const BoardPage = () => {
   const { id: boardId } = useParams()
@@ -11,7 +11,8 @@ export const BoardPage = () => {
 
   return (
     <PageContainer>
-      <h1>{currentBoard?.description}</h1>
+      <BoardColumn title='TO DO' count='0' />
+      <BoardColumn title='IN PROGRESS' count='0' />
     </PageContainer>
   )
 }
