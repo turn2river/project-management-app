@@ -4,6 +4,7 @@ import { PageContainer } from './styled'
 
 import { dataBoards } from '../../config/dataBoards'
 import { BoardColumn } from '../BoardColumn'
+import { ColumnButton } from './ColumnButton'
 
 export const BoardPage = () => {
   const { id: boardId } = useParams()
@@ -13,6 +14,7 @@ export const BoardPage = () => {
     <PageContainer>
       <BoardColumn title='TO DO' count='0' />
       <BoardColumn title='IN PROGRESS' count='0' />
+      <ColumnButton text='Create new +' handleClick={() => {}} />
     </PageContainer>
   )
 }
