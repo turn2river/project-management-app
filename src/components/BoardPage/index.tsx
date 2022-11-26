@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { PageContainer } from './styled'
 
 import { dataBoards } from '../../config/dataBoards'
-import { BoardColumn } from '../BoardColumn'
+import { BoardColumn } from './BoardColumn'
 import { ColumnButton } from './ColumnButton'
 
 export const BoardPage = () => {
