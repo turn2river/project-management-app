@@ -15,6 +15,7 @@ import { Footer } from '../Footer'
 import { WellcomePage } from '../WellcomePage'
 import { MainPage } from '../MainPage'
 import { TeamPage } from '../TeamPage'
+import { BoardPage } from '../BoardPage'
 
 export const App = () => {
   // временный стейт для логина юзера
@@ -62,6 +63,7 @@ export const App = () => {
             path='/team'
             element={<TeamPage />}
           />
+          <Route path="/main/board/:id" element={<BoardPage />} />
         </Routes>
         <Footer />
       </AppContainer>

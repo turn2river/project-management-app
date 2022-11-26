@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { Button } from '../Button'
 import { Modal } from '../Modal'
@@ -43,7 +44,13 @@ export const MainPage = () => {
       <DescriptionHead>SElect oR create a project</DescriptionHead>
       <ProjectsBlock>
         {dataBoards.map((board) =>
-          <BoardComponent key={board.id} data={board} />
+          <Link
+            key={board.id}
+            to={`board/${board.id}`}
+          >
+            <BoardComponent data={board} />
+          </Link>
+
         )}
         <Button
           text='+ project'
