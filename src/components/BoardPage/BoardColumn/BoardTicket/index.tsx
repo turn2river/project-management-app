@@ -12,23 +12,23 @@ import {
   TicketProfile
 } from './styled'
 
-  type TColumn = {
-    title: string,
-    description: string,
-    count: string,
-  }
+type TColumn = {
+  title: string,
+  description: string,
+  count: string,
+}
 
 export const BoardTicket = ({ title, description, count }: TColumn) => {
   return (
     <TicketWrapper>
       <TicketBlock>
-        <TicketTitle>{title}</TicketTitle>
+        <TicketTitle contentEditable>{title}</TicketTitle>
         <TicketDescription>{description}</TicketDescription>
         <TicketLabel>Development</TicketLabel>
       </TicketBlock>
       <TicketFooter>
         <TicketFooterBlock>
-          <CommentLogo src='assets/icon_comment.svg'/>
+          <CommentLogo src='/assets/icon_comment.svg'/>
           <CommentCounter>{count}</CommentCounter>
         </TicketFooterBlock>
         <TicketProfilesBlock>

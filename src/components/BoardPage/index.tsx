@@ -1,20 +1,29 @@
 import { useParams } from 'react-router-dom'
 
+import { BoardColumn } from './BoardColumn'
+import { Button } from '../Button'
+
 import { PageContainer } from './styled'
 
-import { dataBoards } from '../../config/dataBoards'
-import { BoardColumn } from './BoardColumn'
-import { ColumnButton } from './ColumnButton'
-
 export const BoardPage = () => {
-  const { id: boardId } = useParams()
-  const currentBoard = dataBoards.find((board) => (board.id).toString() === boardId)
+  //for work with BE in future
+  const { id } = useParams()
 
   return (
     <PageContainer>
-      <BoardColumn title='TO DO' count='0' />
-      <BoardColumn title='IN PROGRESS' count='0' />
-      <ColumnButton text='Create new +' handleClick={() => {}} />
+      <BoardColumn
+        title='TO DO'
+        count='0'
+      />
+      <BoardColumn
+        title='IN PROGRESS'
+        count='0'
+      />
+      <Button
+        text='Create new +'
+        handleClick={() => {}}
+        customButton
+      />
     </PageContainer>
   )
 }

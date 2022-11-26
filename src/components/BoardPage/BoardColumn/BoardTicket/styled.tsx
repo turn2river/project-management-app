@@ -9,6 +9,7 @@ export const TicketWrapper = styled.div`
   border: 1px solid rgba(102, 112, 133, 0.5);
   border-radius: 8px;
   padding: 20px;
+  cursor: pointer;
 `
 
 export const TicketBlock = styled.div`
@@ -56,6 +57,7 @@ export const TicketFooter = styled.div`
 export const TicketFooterBlock = styled.div`
   display: flex;
   gap: 11px;
+  align-items: center;
 `
 
 export const CommentLogo = styled.img`

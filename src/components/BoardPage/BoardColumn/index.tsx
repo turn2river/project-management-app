@@ -1,3 +1,6 @@
+import { Button } from '../../Button'
+import { BoardTicket } from './BoardTicket'
+
 import {
   ColumnBlock,
   ColumnCounter,
@@ -6,8 +9,6 @@ import {
   ColumnTitle,
   ColumnWrapper
 } from './styled'
-import { Button } from '../../Button'
-import { BoardTicket } from './BoardTicket'
 
 type TColumn = {
   title: string,
@@ -19,7 +20,7 @@ export const BoardColumn = ({ title, count }: TColumn) => {
     <ColumnWrapper>
       <ColumnHeader>
         <ColumnBlock>
-          <ColumnTitle>{title}</ColumnTitle>
+          <ColumnTitle contentEditable>{title}</ColumnTitle>
           <ColumnCounter>{count}</ColumnCounter>
         </ColumnBlock>
         <ColumnOptions />
@@ -29,7 +30,10 @@ export const BoardColumn = ({ title, count }: TColumn) => {
         description='test text for ticket'
         count='1'
       />
-      <Button text='+ Card' handleClick={() => {}} />
+      <Button
+        text='+ Card'
+        handleClick={() => {}}
+      />
     </ColumnWrapper>
   )
 }
