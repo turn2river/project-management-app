@@ -12,13 +12,14 @@ import {
   TicketProfile
 } from './styled'
 
-type TColumn = {
+type TBoardTicket = {
   title: string,
-  description: string,
-  count: string,
+  description?: string,
 }
 
-export const BoardTicket = ({ title, description, count }: TColumn) => {
+export const BoardTicket = ({ title, description }: TBoardTicket) => {
+  const count = 0
+
   return (
     <TicketWrapper>
       <TicketBlock>

@@ -11,14 +11,8 @@ export const BoardPage = () => {
 
   return (
     <PageContainer>
-      <BoardColumn
-        title='TO DO'
-        count='0'
-      />
-      <BoardColumn
-        title='IN PROGRESS'
-        count='0'
-      />
+      <BoardColumn title='TO DO' />
+      <BoardColumn title='IN PROGRESS' />
       <Button
         text='Create new +'
         handleClick={() => {}}

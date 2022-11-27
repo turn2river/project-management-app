@@ -10,12 +10,13 @@ import {
   ColumnWrapper
 } from './styled'
 
-type TColumn = {
+type TBoardColumn = {
   title: string,
-  count: string,
 }
 
-export const BoardColumn = ({ title, count }: TColumn) => {
+export const BoardColumn = ({ title }: TBoardColumn) => {
+  const count = 0
+
   return (
     <ColumnWrapper>
       <ColumnHeader>
@@ -28,7 +29,6 @@ export const BoardColumn = ({ title, count }: TColumn) => {
       <BoardTicket
         title='test title'
         description='test text for ticket'
-        count='1'
       />
       <Button
         text='+ Card'
