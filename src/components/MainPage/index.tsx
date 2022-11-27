@@ -27,12 +27,6 @@ export const MainPage = () => {
 
   return (
     <PageContainer>
-      <Modal
-        isOpen={openModal}
-        toggleModal={toggleModal}
-      >
-        <BoardForm />
-      </Modal>
       <MainTitle>
         <Logo />
         <Header>
@@ -58,6 +52,12 @@ export const MainPage = () => {
           handleClick={toggleModal}
         />
       </ProjectsBlock>
+      <Modal
+        isOpen={openModal}
+        toggleModal={toggleModal}
+      >
+        <BoardForm />
+      </Modal>
     </PageContainer>
   )
 }
