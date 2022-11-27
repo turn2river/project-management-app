@@ -1,6 +1,6 @@
 import { Path, UseFormRegister } from 'react-hook-form'
 
-import { IFormValues } from '../../index'
+import { IFormValues } from '../index'
 import { InputBlock, InputField } from './styled'
 
 type Props = {
