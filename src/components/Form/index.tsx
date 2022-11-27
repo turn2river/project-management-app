@@ -28,7 +28,10 @@ export const BoardForm = () => {
         register={register}
         required
       />
-      <Button handleClick={handleSubmit(onSubmit)} text={'create new!'} />
+      <Button
+        handleClick={handleSubmit(onSubmit)}
+        text={'create new!'}
+      />
     </FormBlock>
   )
 }
