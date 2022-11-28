@@ -12,12 +12,26 @@ import {
   TicketProfile
 } from './styled'
 
-type TBoardTicket = {
-  title: string,
-  description?: string,
+// type TBoardTicket = {
+//   title: string,
+//   description?: string,
+// }
+
+type TBoardColumn = {
+  data: {
+    id: string,
+    title: string,
+    description: string
+  };
 }
 
-export const BoardTicket = ({ title, description }: TBoardTicket) => {
+export const BoardTicket = ({
+  data: {
+    id,
+    title,
+    description,
+  },
+}: TBoardColumn) => {
   const count = 0
 
   return (

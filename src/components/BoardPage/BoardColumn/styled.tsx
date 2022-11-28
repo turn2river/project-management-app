@@ -54,3 +54,9 @@ export const ColumnOptions = styled.div`
     transform: scale(1.1);
   }
 `
+
+export const ColumnTaskList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`

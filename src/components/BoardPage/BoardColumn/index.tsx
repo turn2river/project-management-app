@@ -11,20 +11,35 @@ import {
   ColumnHeader,
   ColumnOptions,
   ColumnTitle,
-  ColumnWrapper
+  ColumnWrapper,
+  ColumnTaskList
 } from './styled'
 
+// type TBoardColumn = {
+//   title: string,
+// }
+
 type TBoardColumn = {
-  title: string,
+  data: {
+    id: string,
+    title: string,
+    taskIds: string[]
+  };
 }
 
-export const BoardColumn = ({ title }: TBoardColumn) => {
+export const BoardColumn = ({
+  data: {
+    id,
+    column
+    tasks,
+  },
+}: TBoardColumn) => {
   const count = 0
   const [openModal, setOpenModal] = useState(false)
   const toggleModal = () => setOpenModal(!openModal)
 
   return (
-    <ColumnWrapper>
+    <ColumnWrapper draggable={true}>
       <ColumnHeader>
         <ColumnBlock>
           <ColumnTitle contentEditable>{title}</ColumnTitle>
@@ -32,10 +47,13 @@ export const BoardColumn = ({ title }: TBoardColumn) => {
         </ColumnBlock>
         <ColumnOptions />
       </ColumnHeader>
-      <BoardTicket
-        title='test title'
-        description='test text for ticket'
-      />
+      <ColumnTaskList>
+        {tasks.map(task => <BoardTicket key={task.id} task={task} /> )}
+        {/* <BoardTicket
+          title='test title'
+          description='test text for ticket'
+        /> */}
+      </ColumnTaskList>
       <Button
         text='+ Card'
         handleClick={toggleModal}
