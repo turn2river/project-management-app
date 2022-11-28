@@ -19,6 +19,7 @@ import {
   Logo,
   DescriptionHead
 } from '../WellcomePage/styled'
+import { BoardForm } from '../Form'
 
 export const MainPage = () => {
   const [openModal, setOpenModal] = useState(false)
@@ -26,12 +27,6 @@ export const MainPage = () => {
 
   return (
     <PageContainer>
-      <Modal
-        isOpen={openModal}
-        toggleModal={toggleModal}
-      >
-        <span>сюда вставляем нужную форму...</span>
-      </Modal>
       <MainTitle>
         <Logo />
         <Header>
@@ -54,9 +49,15 @@ export const MainPage = () => {
         )}
         <Button
           text='+ project'
-          handleClick={() => {}}
+          handleClick={toggleModal}
         />
       </ProjectsBlock>
+      <Modal
+        isOpen={openModal}
+        toggleModal={toggleModal}
+      >
+        <BoardForm />
+      </Modal>
     </PageContainer>
   )
 }

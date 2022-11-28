@@ -17,8 +17,8 @@ export const ModalContainer = styled.div`
 `
 
 export const ModalWindow = styled.div`
-  width: 300px;
-  height: 300px;
+  width: 340px;
+  height: 240px;
   background: #FCFCFD;
   border: 1px solid rgba(102, 112, 133, 0.5);
   border-radius: 8px;

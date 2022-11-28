@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import {
   HeaderWrapper,
@@ -8,6 +9,7 @@ import {
   HeaderLogo,
   HeaderLogoTitle,
   HeaderLogoLink,
+  MainLink,
 } from './styled'
 
 type THeader = {
@@ -16,6 +18,7 @@ type THeader = {
 }
 
 export const Header = ({ isLoggedIn, handleLogout }: THeader) => {
+  const currentLocation = useLocation().pathname
 
   return (
     <HeaderWrapper>
@@ -37,6 +40,10 @@ export const Header = ({ isLoggedIn, handleLogout }: THeader) => {
         )}
         <HeaderIcon isLangSelect />
       </HeaderControls>
+      {(currentLocation.includes('board')) &&
+          <MainLink to="/main">
+            GO BACK
+          </MainLink> }
     </HeaderWrapper>
   )
 }

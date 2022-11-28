@@ -1,4 +1,8 @@
+import { useState } from 'react'
+
 import { Button } from '../../Button'
+import { BoardForm } from '../../Form'
+import { Modal } from '../../Modal'
 import { BoardTicket } from './BoardTicket'
 
 import {
@@ -10,12 +14,15 @@ import {
   ColumnWrapper
 } from './styled'
 
-type TColumn = {
+type TBoardColumn = {
   title: string,
-  count: string,
 }
 
-export const BoardColumn = ({ title, count }: TColumn) => {
+export const BoardColumn = ({ title }: TBoardColumn) => {
+  const count = 0
+  const [openModal, setOpenModal] = useState(false)
+  const toggleModal = () => setOpenModal(!openModal)
+
   return (
     <ColumnWrapper>
       <ColumnHeader>
@@ -28,12 +35,17 @@ export const BoardColumn = ({ title, count }: TColumn) => {
       <BoardTicket
         title='test title'
         description='test text for ticket'
-        count='1'
       />
       <Button
         text='+ Card'
-        handleClick={() => {}}
+        handleClick={toggleModal}
       />
+      <Modal
+        isOpen={openModal}
+        toggleModal={toggleModal}
+      >
+        <BoardForm />
+      </Modal>
     </ColumnWrapper>
   )
 }

@@ -81,3 +81,11 @@ export const HeaderIcon = styled.div<THeaderIcon>`
     transform: scale(1.1);
   }
 `
+
+export const MainLink = styled(Link)`
+  margin: 5px 0;
+
+  &:hover {
+    color: #000;
+  } 
+`
