@@ -12,7 +12,7 @@ import { dataMembers } from '../../config/dataMembers'
 export const TeamPage = () => (
   <PageContainer>
     <TeamBlock>
-      <TeamLogo src='assets/head_logo.svg' />
+      <TeamLogo src='/assets/head_logo.svg' />
       <TeamLabel>
         MONKEY TEAM
       </TeamLabel>

@@ -45,7 +45,7 @@ export const ColumnCounter = styled.div`
 export const ColumnOptions = styled.div`
   min-width: 25px;
   height: 5px;
-  background-image: url(assets/icon_dots.svg);
+  background-image: url(/assets/icon_dots.svg);
   background-size: contain;
   margin-left: auto;
   cursor: pointer;
