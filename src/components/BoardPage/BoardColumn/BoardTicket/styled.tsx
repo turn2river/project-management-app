@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 
 export const TicketWrapper = styled.div`
-  width: 320px;
+  width: 310px;
   display: flex;
   flex-direction: column;
   gap: 20px;

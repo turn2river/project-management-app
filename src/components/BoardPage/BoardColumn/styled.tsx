@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
+import { customScrollbar } from '../../../globalStyles'
 
 export const ColumnWrapper = styled.div`
-  width: 320px;
   display: flex;
   flex-direction: column;
   background: #FCFCFD;
@@ -53,4 +53,14 @@ export const ColumnOptions = styled.div`
   &:hover {
     transform: scale(1.1);
   }
+`
+
+export const ColumnBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow-y: auto;
+  padding-right: 7px;
+
+  ${customScrollbar};
 `
