@@ -22,7 +22,7 @@ export const Logo = styled.div`
   grid-area: logo;
   align-self: center;
   margin-right: 10px;
-  background-image: url(assets/head_logo.svg);
+  background-image: url(/assets/head_logo.svg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -147,13 +147,13 @@ export const IconVisibility = styled.div<TIconVisibility>`
   ${({ iconType }) => (
     iconType
       ? css`
-        background-image: url(assets/icon_visible.svg);
+        background-image: url(/assets/icon_visible.svg);
         width: 20px;
         height: 20px;
         right: 10px;
       `
       : css`
-        background-image: url(assets/icon_not_visible.svg);
+        background-image: url(/assets/icon_not_visible.svg);
         width: 22px;
         height: 22px;
         right: 9px;

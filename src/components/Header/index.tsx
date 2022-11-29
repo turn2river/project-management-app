@@ -23,7 +23,7 @@ export const Header = ({ isLoggedIn, handleLogout }: THeader) => {
   return (
     <HeaderWrapper>
       <HeaderLogoLink to="/">
-        <HeaderLogo src='assets/head_logo.svg' />
+        <HeaderLogo src='/assets/head_logo.svg' />
         <HeaderLogoTitle>monkey</HeaderLogoTitle>
       </HeaderLogoLink>
       <HeaderControls>

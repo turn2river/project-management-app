@@ -63,15 +63,15 @@ export const HeaderIcon = styled.div<THeaderIcon>`
       case isSignIn:
         // вероятно нам вобще нахер не нужна
         // иконка sign in
-        return 'url(assets/icon_signin.svg);'
+        return 'url(/assets/icon_signin.svg);'
       case isSignOut:
-        return 'url(assets/icon_signout.svg);'
+        return 'url(/assets/icon_signout.svg);'
       case isProfileEdit:
-        return 'url(assets/icon_edit_profile.svg);'
+        return 'url(/assets/icon_edit_profile.svg);'
       case isCreateBoard:
-        return 'url(assets/icon_create_board.svg);'
+        return 'url(/assets/icon_create_board.svg);'
       case isLangSelect:
-        return 'url(assets/icon_language.svg);'
+        return 'url(/assets/icon_language.svg);'
       default:
         return ''
     }
