@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import {
   BrowserRouter,
@@ -17,6 +17,9 @@ import { MainPage } from '../MainPage'
 import { TeamPage } from '../TeamPage'
 import { BoardPage } from '../BoardPage'
 
+import { db } from '../../firebase_config'
+import { collection, getDocs, addDoc } from '@firebase/firestore'
+
 export const App = () => {
   // временный стейт для логина юзера
   const [loggedIn, setLoggedIn] = useState(false)
@@ -28,6 +31,26 @@ export const App = () => {
   setTimeout(() => setLoggedIn(false), 300000)
   console.log('logged in', loggedIn)
 
+  const [newName, setNewName] = useState('')
+  const [newAge, setNewAge] = useState('')
+
+  const [users, setUsers] = useState([])
+  const usersCollectionRef = collection(db, 'users')
+
+  const createUser = async () => {
+    await addDoc(usersCollectionRef, {name: newName, age: newAge})
+  }
+
+  useEffect(() => {
+    const getUsers = async () => {
+      const data = await getDocs(usersCollectionRef)
+      // @ts-expect-error type it
+      setUsers(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+    }
+    getUsers()
+  }, [usersCollectionRef])
+
+  console.log(users)
   return (
     <BrowserRouter>
       <GlobalStyle />
@@ -36,6 +59,15 @@ export const App = () => {
           isLoggedIn={loggedIn}
           handleLogout={handleLogout}
         />
+        <input
+          placeholder='name'
+          onChange={(e) => setNewName(e.target.value)}
+        />
+        <input
+          placeholder='age'
+          onChange={(e) => setNewAge(e.target.value)}
+        />
+        <button onClick={createUser}>create user</button>
         <Routes>
           {loggedIn
             ? (
@@ -70,3 +102,4 @@ export const App = () => {
     </BrowserRouter>
   )
 }
+
