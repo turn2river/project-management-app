@@ -11,7 +11,8 @@ import {
   ColumnHeader,
   ColumnOptions,
   ColumnTitle,
-  ColumnWrapper
+  ColumnWrapper,
+  ColumnBody,
 } from './styled'
 
 type TBoardColumn = {
@@ -32,10 +33,24 @@ export const BoardColumn = ({ title }: TBoardColumn) => {
         </ColumnBlock>
         <ColumnOptions />
       </ColumnHeader>
-      <BoardTicket
-        title='test title'
-        description='test text for ticket'
-      />
+      <ColumnBody>
+        <BoardTicket
+          title='test title'
+          description='test text for ticket'
+        />
+        <BoardTicket
+          title='test title'
+          description='test text for ticket'
+        />
+        <BoardTicket
+          title='test title'
+          description='test text for ticket'
+        />
+        <BoardTicket
+          title='test title'
+          description='test text for ticket'
+        />
+      </ColumnBody>
       <Button
         text='+ Card'
         handleClick={toggleModal}

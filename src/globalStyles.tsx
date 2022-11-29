@@ -51,6 +51,7 @@ export const customScrollbar = css`
   ::-webkit-scrollbar {
     width: 5px;
     border-radius: 50%;
+    height: 6px;
   }
 
   ::-webkit-scrollbar-track {
