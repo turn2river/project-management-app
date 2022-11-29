@@ -63,7 +63,10 @@ export const App = () => {
             path='/team'
             element={<TeamPage />}
           />
-          <Route path="/main/board/:id" element={<BoardPage />} />
+          <Route
+            path='/main/board/:id'
+            element={<BoardPage />}
+          />
         </Routes>
         <Footer />
       </AppContainer>

@@ -37,6 +37,13 @@
     "@typescript-eslint/no-var-reqiures": "off",
     "@typescript-eslint/indent": ["warn", 2],
     "@typescript-eslint/semi": ["error", "never"],
+    "@typescript-eslint/quotes": [
+      "error",
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "no-trailing-spaces": "warn",
@@ -44,6 +51,8 @@
     "no-duplicate-imports": "off",
     "no-tabs": "warn",
     "eol-last": 1,
+    "jsx-quotes": [2, "prefer-single"],
+    "quotes": [1, "single", { "avoidEscape": true }],
     "semi": [0, "never"],
     "no-multiple-empty-lines": ["warn", { "max": 1, "maxEOF": 1 }],
     "max-len": [

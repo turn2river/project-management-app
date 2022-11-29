@@ -27,7 +27,7 @@ export const ModalWindow = styled.div`
 `
 
 export const ModalCloseBtn = styled.div`
-  background-image: url(assets/icon_close.svg);
+  background-image: url(/assets/icon_close.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 20px;

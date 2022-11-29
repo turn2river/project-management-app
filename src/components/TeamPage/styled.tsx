@@ -15,6 +15,7 @@ export const TeamLabel = styled.div`
   line-height: 49px;
   color: #7B61FF;
 `
+
 export const TeamBlock = styled.div`
   display: flex;
   align-items: center;

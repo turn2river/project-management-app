@@ -1,7 +1,8 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Button } from '../Button'
 
 import { FormsInput } from './FormsInput'
+import { Button } from '../Button'
+
 import { FormBlock } from './styled'
 
 export interface IFormValues {
@@ -24,13 +25,13 @@ export const BoardForm = () => {
   return (
     <FormBlock>
       <FormsInput
-        id="title"
+        id='title'
         register={register}
         required
       />
       <Button
         handleClick={handleSubmit(onSubmit)}
-        text={'create new!'}
+        text='create new!'
       />
     </FormBlock>
   )

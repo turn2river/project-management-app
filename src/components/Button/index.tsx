@@ -8,7 +8,10 @@ type TButton = {
 
 export const Button = ({ text, handleClick, customButton }: TButton) => {
   return (
-    <ButtonWrapper onClick={handleClick} isColumnButton={customButton}>
+    <ButtonWrapper
+      onClick={handleClick}
+      isColumnButton={customButton}
+    >
       <span>{text}</span>
     </ButtonWrapper>
   )

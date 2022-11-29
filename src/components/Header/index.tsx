@@ -22,8 +22,8 @@ export const Header = ({ isLoggedIn, handleLogout }: THeader) => {
 
   return (
     <HeaderWrapper>
-      <HeaderLogoLink to="/">
-        <HeaderLogo src='assets/head_logo.svg' />
+      <HeaderLogoLink to='/'>
+        <HeaderLogo src='/assets/head_logo.svg' />
         <HeaderLogoTitle>monkey</HeaderLogoTitle>
       </HeaderLogoLink>
       <HeaderControls>
@@ -41,7 +41,7 @@ export const Header = ({ isLoggedIn, handleLogout }: THeader) => {
         <HeaderIcon isLangSelect />
       </HeaderControls>
       {(currentLocation.includes('board')) &&
-          <MainLink to="/main">
+          <MainLink to='/main'>
             GO BACK
           </MainLink> }
     </HeaderWrapper>
