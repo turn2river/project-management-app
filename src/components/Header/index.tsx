@@ -1,5 +1,7 @@
+/* tslint:disable */
 import { Fragment } from 'react'
 import { useLocation } from 'react-router-dom'
+import { auth } from '../../firebase_config'
 
 import {
   HeaderWrapper,
@@ -13,7 +15,7 @@ import {
 } from './styled'
 
 type THeader = {
-  isLoggedIn: boolean,
+  isLoggedIn: Record<string, never> | null,
   handleLogout: () => void
 }
 
@@ -29,6 +31,7 @@ export const Header = ({ isLoggedIn, handleLogout }: THeader) => {
       <HeaderControls>
         { isLoggedIn && (
           <Fragment>
+            <div>{auth.currentUser?.email}</div>
             <HeaderIcon
               isSignOut
               onClick={handleLogout}

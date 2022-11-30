@@ -1,6 +1,15 @@
 import { BaseSyntheticEvent, useState } from 'react'
 
 import {
+  createUserWithEmailAndPassword,
+  // onAuthStateChanged,
+  signInWithEmailAndPassword,
+  // signOut,
+} from 'firebase/auth'
+
+import { auth } from '../../firebase_config'
+
+import {
   PageContainer,
   MainTitle,
   Logo,
@@ -15,26 +24,59 @@ import {
   SignUpNow,
   InputBlock,
   IconVisibility,
+  ErrorMessage,
 } from './styled'
 
-type TWelcomePage = {
-  handleLogin: () => void
-}
-
-export const WellcomePage = ({ handleLogin }: TWelcomePage) => {
+export const WellcomePage = () => {
 
   const [inputType, setInputType] = useState(false)
   const [iconType, setIconType] = useState(true)
-  const [passwordValue, setPasswordValue] = useState('')
-
-  const handlePassword = (e: BaseSyntheticEvent) => {
-    setPasswordValue(e.target.value)
-  }
 
   const toggleShowPassword = () => {
     setInputType(!inputType)
-    if (passwordValue !== '') {
+    if (loginPassword !== '' || registerPassword !== '') {
       setIconType(!iconType)
+    }
+  }
+
+  const [registerEmail, setRegisterEmail] = useState('')
+  const [registerPassword, setRegisterPassword] = useState('')
+
+  const [loginEmail, setLoginEmail] = useState('')
+  const [loginPassword, setLoginPassword] = useState('')
+
+  const [error, setError] = useState('')
+  const [showRegister, setShowRegister] = useState(false)
+
+  const registerUser = async (e: BaseSyntheticEvent) => {
+    e.preventDefault()
+    setError('')
+    try {
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        registerEmail,
+        registerPassword,
+      )
+      console.log('user', user.user.displayName)
+    } catch (error) {
+      // @ts-expect-error f u
+      setError(error.code.substr(5))
+    }
+  }
+
+  const loginUser = async (e: BaseSyntheticEvent) => {
+    e.preventDefault()
+    setError('')
+    try {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        loginEmail,
+        loginPassword
+      )
+      console.log('user', user)
+    } catch (error) {
+      // @ts-expect-error f u
+      setError(error.code.substr(5))
     }
   }
 
@@ -56,27 +98,81 @@ export const WellcomePage = ({ handleLogin }: TWelcomePage) => {
       A project management application<br/>
       to improve your workflow.
       </DescriptionHead>
-      <AuthBlock>
-        <InputField placeholder='login'/>
-        <InputBlock>
+
+      {/* login block */}
+      {!showRegister && (
+        <AuthBlock onSubmit={loginUser}>
+          <ErrorMessage>{error}</ErrorMessage>
           <InputField
-            type={inputType ? 'text' : 'password'}
-            placeholder='password'
-            value={passwordValue}
-            onChange={(e) => handlePassword(e)}
+            type='email'
+            placeholder='email'
+            onChange={(e) => setLoginEmail(e.target.value)}
+            required={true}
+            autoComplete='off'
           />
-          <IconVisibility
-            onClick={toggleShowPassword}
-            isVisible={passwordValue !== ''}
-            iconType={iconType}
+          <InputBlock>
+            <InputField
+              type={inputType ? 'text' : 'password'}
+              placeholder='password'
+              onChange={(e) => setLoginPassword(e.target.value)}
+              required
+              autoComplete='off'
+            />
+            <IconVisibility
+              onClick={toggleShowPassword}
+              isVisible={loginPassword !== ''}
+              iconType={iconType}
+            />
+          </InputBlock>
+          <SignInButton
+            type='submit'
+            disabled={loginEmail === '' || loginPassword === ''}
+          >
+            <span>sign in</span>
+          </SignInButton>
+          <BreadCrumbs>Don&#8217;t have an account?</BreadCrumbs>
+          <SignUpNow
+            onClick={() => setShowRegister(true)}
+          >
+            Sign up now
+          </SignUpNow>
+        </AuthBlock>
+      )}
+
+      {/* reg block */}
+      { showRegister && (
+        <AuthBlock onSubmit={registerUser}>
+          <ErrorMessage>{error}</ErrorMessage>
+          <InputField
+            placeholder='email'
+            type='email'
+            onChange={(e) => setRegisterEmail(e.target.value)}
+            autoComplete='off'
+            required
           />
-        </InputBlock>
-        <SignInButton onClick={handleLogin}>
-          <span>sign in</span>
-        </SignInButton>
-        <BreadCrumbs>Don&#8217;t have an account?</BreadCrumbs>
-        <SignUpNow>Sign up now</SignUpNow>
-      </AuthBlock>
+          <InputBlock>
+            <InputField
+              type={inputType ? 'text' : 'password'}
+              placeholder='password'
+              onChange={(e) => setRegisterPassword(e.target.value)}
+              required
+              autoComplete='off'
+            />
+            <IconVisibility
+              onClick={toggleShowPassword}
+              isVisible={registerPassword !== ''}
+              iconType={iconType}
+            />
+          </InputBlock>
+          <SignInButton
+            type='submit'
+            disabled={registerEmail === '' || registerPassword === ''}
+          >
+            <span>register</span>
+          </SignInButton>
+        </AuthBlock>
+      )}
+
     </PageContainer>
   )
 }
