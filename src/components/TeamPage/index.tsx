@@ -1,3 +1,10 @@
+import { useState, useEffect } from 'react'
+
+import { db } from '../../firebase_config'
+import { collection, getDocs, addDoc } from '@firebase/firestore'
+
+import { TeamMember } from './TeamMember'
+
 import {
   PageContainer,
   TeamLabel,
@@ -6,21 +13,56 @@ import {
   MembersList,
 } from './styled'
 
-import { TeamMember } from './TeamMember'
-import { dataMembers } from '../../config/dataMembers'
+// const [newName, setNewName] = useState('')
+// const [newAge, setNewAge] = useState('')
 
-export const TeamPage = () => (
-  <PageContainer>
-    <TeamBlock>
-      <TeamLogo src='/assets/head_logo.svg' />
-      <TeamLabel>
+// const createUser = async () => {
+//   await addDoc(usersCollectionRef, {name: newName, age: newAge})
+// }
+
+export const TeamPage = () => {
+  const [team, setTeam] = useState([])
+  const teamCollectionRef = collection(db, 'team')
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const getTeam = async () => {
+      const data = await getDocs(teamCollectionRef)
+      console.log("дата", data.docs)
+      // @ts-expect-error type it
+      setTeam(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+    }
+
+    if (team.length === 0) {
+      getTeam().then(() =>
+        setTimeout(() => {
+          setLoading(true)
+        }, 1000)
+      )
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  console.log("team", team)
+
+  return (
+    <PageContainer>
+      <TeamBlock>
+        <TeamLogo src='/assets/head_logo.svg' />
+        <TeamLabel>
         MONKEY TEAM
-      </TeamLabel>
-    </TeamBlock>
-    <MembersList>
-      {dataMembers.map((member) =>
-        <TeamMember key={member.id} data={member} />
-      )}
-    </MembersList>
-  </PageContainer>
-)
+        </TeamLabel>
+      </TeamBlock>
+      <MembersList>
+        {loading ? (
+          team.map((member, idx) =>
+            <TeamMember key={member + idx} data={member} />
+          )
+        ) : (
+          <div>loading</div>
+        )}
+      </MembersList>
+    </PageContainer>
+  )
+}
+
