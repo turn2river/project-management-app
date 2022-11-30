@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import PacmanLoader from 'react-spinners/PacmanLoader'
 
 import { db } from '../../firebase_config'
 import { collection, getDocs, addDoc } from '@firebase/firestore'
@@ -23,12 +24,11 @@ import {
 export const TeamPage = () => {
   const [team, setTeam] = useState([])
   const teamCollectionRef = collection(db, 'team')
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const getTeam = async () => {
       const data = await getDocs(teamCollectionRef)
-      console.log("дата", data.docs)
       // @ts-expect-error type it
       setTeam(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
     }
@@ -59,7 +59,12 @@ export const TeamPage = () => {
             <TeamMember key={member + idx} data={member} />
           )
         ) : (
-          <div>loading</div>
+          <PacmanLoader
+            color={'#7B61FF'}
+            size={25}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
         )}
       </MembersList>
     </PageContainer>
