@@ -59,11 +59,13 @@ export const DescriptionHead = styled.h3`
 `
 
 // переделать в форму когда понадобится
-export const AuthBlock = styled.div`
+export const AuthBlock = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 `
+
 export const InputBlock = styled.div`
   position: relative;
   width: 320px;
@@ -90,6 +92,12 @@ export const InputField = styled.input`
     text-transform: capitalize;
     line-height: 20px;
   }
+`
+
+export const ErrorMessage = styled.span`
+  color: red;
+  position: absolute;
+  top: -25px;
 `
 
 export const SignInButton = styled.button`
@@ -123,12 +131,17 @@ export const BreadCrumbs = styled.span`
   color: rgba(102, 112, 133, 0.5);
   margin-bottom: 5px;
 `
-// переделать на ссылку наверно? хз
-// пока висит как див
-export const SignUpNow = styled(BreadCrumbs)`
+
+export const SignUpNow = styled.button`
   color: #7B61FF;
   cursor: pointer;
+  margin-bottom: 5px;
+  font-weight: 700;
+  line-height: 12px;
+  font-size: 10px;
+  background: none;
 `
+
 type TIconVisibility= {
   iconType: boolean,
   isVisible: boolean,

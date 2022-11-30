@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import {
   BrowserRouter,
@@ -17,27 +17,58 @@ import { MainPage } from '../MainPage'
 import { TeamPage } from '../TeamPage'
 import { BoardPage } from '../BoardPage'
 
+// import { db } from '../../firebase_config'
+// import { collection, getDocs, addDoc } from '@firebase/firestore'
+import { auth } from '../../firebase_config'
+import { onAuthStateChanged, signOut } from 'firebase/auth'
+
 export const App = () => {
-  // временный стейт для логина юзера
-  const [loggedIn, setLoggedIn] = useState(false)
-  const handleLogin = () => setLoggedIn(!loggedIn)
 
-  const handleLogout = () => setLoggedIn(false)
+  const [user, setUser] = useState(null)
 
-  // типа токен просрочен черех 5 мин, выкидываем на логин
-  setTimeout(() => setLoggedIn(false), 300000)
-  console.log('logged in', loggedIn)
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      // @ts-expect-error f u
+      setUser(currentUser)
+    })
+  }, [])
 
+  const logoutUser = async () => {
+    await signOut(auth)
+  }
+  // @ts-expect-error f u
+  console.log('logged user', user?.email)
+
+  // const [newName, setNewName] = useState('')
+  // const [newAge, setNewAge] = useState('')
+
+  // const [users, setUsers] = useState([])
+  // const usersCollectionRef = collection(db, 'users')
+
+  // const createUser = async () => {
+  //   await addDoc(usersCollectionRef, {name: newName, age: newAge})
+  // }
+
+  // useEffect(() => {
+  //   const getUsers = async () => {
+  //     const data = await getDocs(usersCollectionRef)
+  //     // @ts-expect-error type it
+  //     setUsers(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+  //   }
+  //   getUsers()
+  // }, [usersCollectionRef])
+
+  // console.log(users)
   return (
     <BrowserRouter>
       <GlobalStyle />
       <AppContainer>
         <Header
-          isLoggedIn={loggedIn}
-          handleLogout={handleLogout}
+          isLoggedIn={user}
+          handleLogout={logoutUser}
         />
         <Routes>
-          {loggedIn
+          {user
             ? (
               <Route
                 path='/'
@@ -53,7 +84,7 @@ export const App = () => {
           }
           <Route
             path='/'
-            element={<WellcomePage handleLogin={handleLogin}/>}
+            element={<WellcomePage />}
           />
           <Route
             path='main'
@@ -70,3 +101,4 @@ export const App = () => {
     </BrowserRouter>
   )
 }
+
