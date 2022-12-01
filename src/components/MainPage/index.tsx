@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import { BoardComponent } from './BoardComponent'
 import { Button } from '../Button'
 import { Modal } from '../Modal'
+import { BoardForm } from '../Form'
 
-import { BoardComponent } from './BoardComponent'
 import { dataBoards } from '../../config/dataBoards'
 
 import {
@@ -19,7 +20,6 @@ import {
   Logo,
   DescriptionHead
 } from '../WellcomePage/styled'
-import { BoardForm } from '../Form'
 
 export const MainPage = () => {
   const [openModal, setOpenModal] = useState(false)

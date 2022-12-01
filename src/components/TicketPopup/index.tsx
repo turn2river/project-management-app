@@ -37,7 +37,6 @@ export const TicketPopup = ({
 
   return (
     <TicketWrapper>
-      {/* <TicketBlock> */}
       <TicketPopupTitle>{title}</TicketPopupTitle>
       <TicketDesc>{description}</TicketDesc>
       <LabelContainer>
@@ -45,7 +44,6 @@ export const TicketPopup = ({
         <TicketLabel isDesign>Design</TicketLabel>
         <TicketLabel>+ Add</TicketLabel>
       </LabelContainer>
-      {/* </TicketBlock> */}
       <TicketFooter>
         <Footer>
           <CommentLogo src='/assets/icon_comment.svg'/>
@@ -64,10 +62,9 @@ export const TicketPopup = ({
             <Avatar>PH</Avatar>
             <Name>{user_name}</Name>
           </AuthorBlock>
-          <CommentText onClick={() => console.log('comment clicked')}>
-            тут должен же быть еще и инпут для комента видимо?
-            короче пока оставил этот блок как типа готовый коммент.
-            инпут прилепим ниже если дойдем вобще до комментов
+          <CommentText>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Alias, reiciendis!
           </CommentText>
         </CommentItem>
       </CommentsList>

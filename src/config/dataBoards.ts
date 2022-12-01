@@ -2,6 +2,7 @@ export const dataBoards = [
   {
     id: 1,
     name: 'this is project name',
+    // eslint-disable-next-line max-len
     description: 'this is project description Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, totam?'
   },
   {

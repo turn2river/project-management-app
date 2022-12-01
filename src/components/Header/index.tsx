@@ -1,4 +1,3 @@
-/* tslint:disable */
 import { Fragment } from 'react'
 import { useLocation } from 'react-router-dom'
 import { auth } from '../../firebase_config'
@@ -24,7 +23,7 @@ export const Header = ({ isLoggedIn, handleLogout }: THeader) => {
 
   return (
     <HeaderWrapper>
-      <HeaderLogoLink to="/">
+      <HeaderLogoLink to='/'>
         <HeaderLogo src='/assets/head_logo.svg' />
         <HeaderLogoTitle>monkey</HeaderLogoTitle>
       </HeaderLogoLink>
@@ -44,7 +43,7 @@ export const Header = ({ isLoggedIn, handleLogout }: THeader) => {
         <HeaderIcon isLangSelect />
       </HeaderControls>
       {(currentLocation.includes('board')) &&
-          <MainLink to="/main">
+          <MainLink to='/main'>
             GO BACK
           </MainLink> }
     </HeaderWrapper>
