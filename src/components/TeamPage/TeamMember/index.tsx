@@ -12,6 +12,7 @@ type Props = {
     name: string;
     description: string;
     github: string;
+    id: number
   };
 }
 
@@ -21,6 +22,7 @@ export const TeamMember = ({
     name,
     description,
     github,
+    id
   },
 }: Props) => (
   <MemberBlock>

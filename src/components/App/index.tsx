@@ -17,10 +17,13 @@ import { MainPage } from '../MainPage'
 import { TeamPage } from '../TeamPage'
 import { BoardPage } from '../BoardPage'
 
-// import { db } from '../../firebase_config'
-// import { collection, getDocs, addDoc } from '@firebase/firestore'
-import { auth } from '../../firebase_config'
+import { db, auth } from '../../firebase_config'
+import { collection, getDocs, addDoc } from '@firebase/firestore'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
+import { getDatabase } from "firebase/database"
+
+const database = getDatabase()
+console.log(database)
 
 export const App = () => {
 
@@ -42,23 +45,28 @@ export const App = () => {
   // const [newName, setNewName] = useState('')
   // const [newAge, setNewAge] = useState('')
 
-  // const [users, setUsers] = useState([])
-  // const usersCollectionRef = collection(db, 'users')
-
   // const createUser = async () => {
   //   await addDoc(usersCollectionRef, {name: newName, age: newAge})
   // }
 
-  // useEffect(() => {
-  //   const getUsers = async () => {
-  //     const data = await getDocs(usersCollectionRef)
-  //     // @ts-expect-error type it
-  //     setUsers(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
-  //   }
-  //   getUsers()
-  // }, [usersCollectionRef])
+  const [team, setTeam] = useState([])
+  const teamCollectionRef = collection(db, 'team')
 
-  // console.log(users)
+  useEffect(() => {
+    const getTeam = async () => {
+      const data = await getDocs(teamCollectionRef)
+      console.log("дата", data.docs)
+      // @ts-expect-error type it
+      setTeam(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+      console.log("team", team)
+    }
+
+    if (team.length === 0) getTeam()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  console.log("team", team)
+
   return (
     <BrowserRouter>
       <GlobalStyle />
@@ -101,4 +109,3 @@ export const App = () => {
     </BrowserRouter>
   )
 }
-
