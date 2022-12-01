@@ -28,7 +28,7 @@ export const BoardColumn = ({ title }: TBoardColumn) => {
     <ColumnWrapper>
       <ColumnHeader>
         <ColumnBlock>
-          <ColumnTitle contentEditable>{title}</ColumnTitle>
+          <ColumnTitle>{title}</ColumnTitle>
           <ColumnCounter>{count}</ColumnCounter>
         </ColumnBlock>
         <ColumnOptions />
