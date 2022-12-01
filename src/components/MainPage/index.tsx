@@ -36,13 +36,10 @@ export const MainPage = () => {
       setBoards(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
     }
 
-    if (boards.length === 0) {
-      getBoards().catch(err => {
-        console.log(err.message)
-      })
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    getBoards().catch(err => {
+      console.log(err.message)
+    })
+  }, [boardsCollectionRef])
   console.log(boards)
   return (
     <PageContainer>
