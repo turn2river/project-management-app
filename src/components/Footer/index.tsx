@@ -18,9 +18,9 @@ export const Footer = () => {
       >rs school</RSLink>
       <Contacts>
         {(currentLocation === '/team') ?
-          <ContacLink to="/">
+          <ContacLink to='/'>
             GO BACK
-          </ContacLink> : <ContacLink to="/team">
+          </ContacLink> : <ContacLink to='/team'>
             MONKEY TEAM ©2022
           </ContacLink>}
       </Contacts>

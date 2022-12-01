@@ -1,7 +1,6 @@
 import { Fragment } from 'react'
 import { Path, UseFormRegister } from 'react-hook-form'
 
-
 import { IFormValues } from '../index'
 import { InputBlock, InputField } from './styled'
 
@@ -20,9 +19,9 @@ export const FormsInput = ({
     <InputBlock>
       <InputField
         placeholder='type title'
-        type="text"
+        type='text'
         id={id}
-        className="form-input"
+        className='form-input'
         {...register(id, { required })}
       />
     </InputBlock>

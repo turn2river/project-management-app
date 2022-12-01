@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import PacmanLoader from 'react-spinners/PacmanLoader'
 
 import { db } from '../../firebase_config'
-import { collection, getDocs, addDoc } from '@firebase/firestore'
+import { collection, getDocs } from '@firebase/firestore'
 
 import { TeamMember } from './TeamMember'
 
@@ -62,8 +62,8 @@ export const TeamPage = () => {
           <PacmanLoader
             color={'#7B61FF'}
             size={25}
-            aria-label="Loading Spinner"
-            data-testid="loader"
+            aria-label='Loading Spinner'
+            data-testid='loader'
           />
         )}
       </MembersList>

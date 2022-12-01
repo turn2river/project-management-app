@@ -58,7 +58,6 @@ export const DescriptionHead = styled.h3`
   line-height: 23px;
 `
 
-// переделать в форму когда понадобится
 export const AuthBlock = styled.form`
   display: flex;
   flex-direction: column;

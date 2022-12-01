@@ -42,6 +42,7 @@
     "no-trailing-spaces": "warn",
     "linebreak-style": "off",
     "no-duplicate-imports": "off",
+    "jsx-quotes": [2, "prefer-single"],
     "no-tabs": "warn",
     "eol-last": 1,
     "semi": [0, "never"],

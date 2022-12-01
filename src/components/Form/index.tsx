@@ -24,7 +24,7 @@ export const BoardForm = () => {
   return (
     <FormBlock>
       <FormsInput
-        id="title"
+        id='title'
         register={register}
         required
       />

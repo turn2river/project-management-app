@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro'
+
 import { NavLink, Link } from 'react-router-dom'
 
 export const HeaderWrapper = styled.header`
@@ -33,11 +34,9 @@ export const HeaderControls = styled.div`
   align-items: center;
 `
 
-// временная херня
 export const LangSelect = styled.div``
 
 export type THeaderIcon = {
-  isSignIn?: boolean,
   isSignOut?: boolean,
   isProfileEdit?: boolean,
   isLangSelect?: boolean,
@@ -54,16 +53,11 @@ export const HeaderIcon = styled.div<THeaderIcon>`
   margin-left: 15px;
   cursor: pointer;
   background-image: ${({
-    isSignIn,
     isSignOut,
     isProfileEdit,
     isLangSelect,
     isCreateBoard}) => {
     switch (true) {
-      case isSignIn:
-        // вероятно нам вобще нахер не нужна
-        // иконка sign in
-        return 'url(/assets/icon_signin.svg);'
       case isSignOut:
         return 'url(/assets/icon_signout.svg);'
       case isProfileEdit:
