@@ -22,6 +22,13 @@ import {
   DescriptionHead
 } from '../WellcomePage/styled'
 
+type TBoard = {
+  description: string
+  id: string
+  title: string
+  user: string
+}
+
 export const MainPage = () => {
   const [openModal, setOpenModal] = useState(false)
   const toggleModal = () => setOpenModal(!openModal)
@@ -39,8 +46,11 @@ export const MainPage = () => {
     getBoards().catch(err => {
       console.log(err.message)
     })
-  }, [boardsCollectionRef])
-  console.log(boards)
+  }, [])
+
+  const currentUserBoards = boards.filter(
+    (board: TBoard) => board.user === auth.currentUser?.email)
+
   return (
     <PageContainer>
       <MainTitle>
@@ -63,10 +73,10 @@ export const MainPage = () => {
           </Link>
 
         )} */}
-        {boards.map((board, idx) =>
+        {currentUserBoards.map((board, idx) =>
           <Link
             key={board + idx}
-            to={`board/${idx}`}
+            to={`board/${idx + 1}`}
           >
             <BoardComponent data={board} />
           </Link>

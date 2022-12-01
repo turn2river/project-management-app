@@ -8,7 +8,7 @@ import {
 
 type Props = {
   data: {
-    id: number
+    id: string
     title: string;
     description: string;
   };
