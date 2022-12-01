@@ -1,3 +1,8 @@
+import { useState } from 'react'
+
+import { Modal } from '../../../Modal'
+import { TicketPopup } from '../../../TicketPopup'
+
 import {
   TicketBlock,
   TicketTitle,
@@ -19,13 +24,18 @@ type TBoardTicket = {
 
 export const BoardTicket = ({ title, description }: TBoardTicket) => {
   const count = 0
+  const test_user = 'username'
+
+  const [openModal, setOpenModal] = useState(false)
+  const toggleModal = () => setOpenModal(!openModal)
 
   return (
-    <TicketWrapper>
+
+    <TicketWrapper onClick={!openModal ? toggleModal : undefined}>
       <TicketBlock>
-        <TicketTitle contentEditable>{title}</TicketTitle>
+        <TicketTitle>{title}</TicketTitle>
         <TicketDescription>{description}</TicketDescription>
-        <TicketLabel>Development</TicketLabel>
+        <TicketLabel isDevelopment>Development</TicketLabel>
       </TicketBlock>
       <TicketFooter>
         <TicketFooterBlock>
@@ -37,6 +47,17 @@ export const BoardTicket = ({ title, description }: TBoardTicket) => {
           <TicketProfile>DF</TicketProfile>
         </TicketProfilesBlock>
       </TicketFooter>
+      <Modal
+        isOpen={openModal}
+        toggleModal={toggleModal}
+      >
+        <TicketPopup
+          title={title}
+          description={description}
+          count={count}
+          user_name={test_user}
+        />
+      </Modal>
     </TicketWrapper>
   )
 }

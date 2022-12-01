@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro'
+import styled, { css } from 'styled-components/macro'
 
 export const TicketWrapper = styled.div`
   width: 310px;
@@ -34,19 +34,44 @@ export const TicketDescription = styled.div`
   color: #98A2B3;
 `
 
-export const TicketLabel = styled.div`
+type TTicketLabel = {
+  isDesign?: boolean,
+  isDevelopment?: boolean,
+}
+
+export const TicketLabel = styled.div<TTicketLabel>`
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
   letter-spacing: -0.02em;
-  color: #12B76A;
-  width: 109px;
+  width: fit-content;
+  padding: 0 12px;
   height: 28px;
-  background: #D1FADF;
   border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 8px;
+
+  ${({isDesign, isDevelopment}) => {
+    switch (true) {
+      case isDesign:
+        return css`
+          color: #2F80ED;
+          background-color:#CFF6FF;
+        `
+      case isDevelopment:
+        return css`
+          color: #12B76A;
+          background-color: #D1FADF;
+        `
+      default:
+        return css`
+          color:#BDBDBD;
+          background-color: #F2F2F2;
+        `
+    }
+  }};
 `
 
 export const TicketFooter = styled.div`
