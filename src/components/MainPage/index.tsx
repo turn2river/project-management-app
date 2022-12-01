@@ -1,23 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-<<<<<<< HEAD
-import { BoardComponent } from './BoardComponent'
-import { auth } from '../../firebase_config'
-=======
 import { auth, db } from '../../firebase_config'
-import { collection, getDocs, addDoc } from '@firebase/firestore'
+import { collection, getDocs } from '@firebase/firestore'
 
->>>>>>> cdbccc4 (feat: add parsing boards from BE)
 import { Button } from '../Button'
 import { Modal } from '../Modal'
 import { BoardForm } from '../Form'
-
-<<<<<<< HEAD
-import { dataBoards } from '../../config/dataBoards'
-=======
 import { BoardComponent } from './BoardComponent'
->>>>>>> cdbccc4 (feat: add parsing boards from BE)
 
 import {
   PageContainer,

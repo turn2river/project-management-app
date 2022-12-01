@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { auth, db } from '../../firebase_config'
-import { collection, getDocs, addDoc } from '@firebase/firestore'
+import { collection, addDoc } from '@firebase/firestore'
 
 import { Button } from '../Button'
 import { FormsInput } from './FormsInput'
@@ -29,7 +29,7 @@ export const BoardForm = () => {
 
     reset()
   }
-  
+
   return (
     <FormBlock>
       <FormsInput
@@ -38,7 +38,7 @@ export const BoardForm = () => {
         required
       />
       <FormsInput
-        id="description"
+        id='description'
         register={register}
         required
       />
