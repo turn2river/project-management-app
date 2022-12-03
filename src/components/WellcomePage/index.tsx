@@ -58,7 +58,6 @@ export const WellcomePage = () => {
         registerEmail,
         registerPassword,
       )
-      console.log('user', user.user.displayName)
     } catch (error) {
       // @ts-expect-error f u
       setError(error.code.substr(5))
@@ -74,7 +73,6 @@ export const WellcomePage = () => {
         loginEmail,
         loginPassword
       )
-      console.log('user', user)
     } catch (error) {
       // @ts-expect-error f u
       setError(error.code.substr(5))

@@ -22,7 +22,6 @@ import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { getDatabase } from "firebase/database"
 
 const database = getDatabase()
-console.log(database)
 
 export const App = () => {
 
@@ -38,8 +37,6 @@ export const App = () => {
   const logoutUser = async () => {
     await signOut(auth)
   }
-  // @ts-expect-error f u
-  console.log('logged user', user?.email)
 
   return (
     <BrowserRouter>
