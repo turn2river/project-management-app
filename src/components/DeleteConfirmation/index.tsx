@@ -3,14 +3,14 @@ import { collection, deleteDoc } from '@firebase/firestore'
 
 import { Button } from '../Button'
 
-import { ConfirmationBlock } from './styled'
+import { ConfirmationBlock, ConfirmTItle } from './styled'
 
 type Props = {
   id: string
 }
 
 export const ConfirmBlock = ({id}: Props) => {
-  const handleClick = (currentId: string) => {
+  const confrimDelete = (currentId: string) => {
     const docRef = collection(db, 'boards', currentId)
 
     // @ts-expect-error type it
@@ -19,8 +19,9 @@ export const ConfirmBlock = ({id}: Props) => {
 
   return (
     <ConfirmationBlock>
+      <ConfirmTItle>Are you sure?</ConfirmTItle>
       <Button
-        handleClick={() => {}}
+        handleClick={confrimDelete(id)}
         text={'Yep'}
       />
       <Button

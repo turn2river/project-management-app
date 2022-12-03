@@ -5,6 +5,20 @@ export const  ConfirmationBlock = styled.div`
   height: 240px;
   display: flex;
   flex-direction: column;
-  gap: 30px;  
+  gap: 20px;  
   justify-content: center;
+  align-items: center;
+`
+
+export const ConfirmTItle = styled.span`
+  font-weight: 700;
+  font-size: 20px;
+  max-width: 250px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 5px;
+  letter-spacing: -0.02em;
+  color: #1D2939;
+  text-transform: uppercase;
 `
