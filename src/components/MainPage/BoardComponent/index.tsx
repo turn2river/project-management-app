@@ -1,3 +1,8 @@
+import { useState } from 'react'
+
+import { ConfirmBlock } from '../../DeleteConfirmation'
+import { Modal } from '../../Modal'
+
 import {
   ProjectCard,
   ProjectOptions,
@@ -20,14 +25,25 @@ export const BoardComponent = ({
     title,
     description,
   },
-}: Props) => (
-  <ProjectCard>
-    <CardHeader>
-      <ProjectName>{title}</ProjectName>
-      <ProjectOptions />
-    </CardHeader>
-    <ProjectDesc>
-      {description}
-    </ProjectDesc>
-  </ProjectCard>
-)
+}: Props) => {
+  const [openModal, setOpenModal] = useState(false)
+  const toggleModal = () => setOpenModal(!openModal)
+
+  return (
+    <ProjectCard>
+      <CardHeader>
+        <ProjectName>{title}</ProjectName>
+        <ProjectOptions />
+      </CardHeader>
+      <ProjectDesc>
+        {description}
+      </ProjectDesc>
+      <Modal
+        isOpen={openModal}
+        toggleModal={toggleModal}
+      >
+        <ConfirmBlock id={id} />
+      </Modal>
+    </ProjectCard>
+  )
+}
