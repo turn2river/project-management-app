@@ -1,5 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { auth } from '../../firebase_config'
+
+import { auth, db } from '../../firebase_config'
+import { collection, getDocs, addDoc } from '@firebase/firestore'
 
 import { Button } from '../Button'
 import { FormsInput } from './FormsInput'
@@ -12,19 +14,22 @@ export interface IFormValues {
 }
 
 export const BoardForm = () => {
-
   const {
     register,
     handleSubmit,
     reset,
   } = useForm<IFormValues>()
 
+  const boardsCollectionRef = collection(db, 'boards')
+
   const onSubmit: SubmitHandler<IFormValues> = (data) => {
     data.user = auth.currentUser?.email
-    alert(JSON.stringify((data)))
+    addDoc(boardsCollectionRef, data)
+    console.log(data)
+
     reset()
   }
-
+  
   return (
     <FormBlock>
       <FormsInput

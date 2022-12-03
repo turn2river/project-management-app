@@ -43,8 +43,6 @@ export const TeamPage = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  console.log("team", team)
-
   return (
     <PageContainer>
       <TeamBlock>

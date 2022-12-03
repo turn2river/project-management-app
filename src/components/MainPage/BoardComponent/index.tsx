@@ -9,7 +9,7 @@ import {
 type Props = {
   data: {
     id: number
-    name: string;
+    title: string;
     description: string;
   };
 }
@@ -17,13 +17,13 @@ type Props = {
 export const BoardComponent = ({
   data: {
     id,
-    name,
+    title,
     description,
   },
 }: Props) => (
   <ProjectCard>
     <CardHeader>
-      <ProjectName>{name}</ProjectName>
+      <ProjectName>{title}</ProjectName>
       <ProjectOptions />
     </CardHeader>
     <ProjectDesc>
