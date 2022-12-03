@@ -5,5 +5,6 @@ export const  ConfirmationBlock = styled.div`
   height: 240px;
   display: flex;
   flex-direction: column;
+  gap: 30px;  
   justify-content: center;
 `

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { ConfirmBlock } from '../../DeleteConfirmation'
 import { Modal } from '../../Modal'
@@ -32,8 +33,10 @@ export const BoardComponent = ({
   return (
     <ProjectCard>
       <CardHeader>
-        <ProjectName>{title}</ProjectName>
-        <ProjectOptions />
+        <Link to={`board/${id}`}>
+          <ProjectName>{title}</ProjectName>
+        </Link>
+        <ProjectOptions onClick={toggleModal} />
       </CardHeader>
       <ProjectDesc>
         {description}

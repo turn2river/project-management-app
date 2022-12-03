@@ -20,7 +20,7 @@ export const ConfirmBlock = ({id}: Props) => {
   return (
     <ConfirmationBlock>
       <Button
-        handleClick={handleClick(id)}
+        handleClick={() => {}}
         text={'Yep'}
       />
       <Button

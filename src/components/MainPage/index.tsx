@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 
 import { auth, db } from '../../firebase_config'
 import { collection, getDocs } from '@firebase/firestore'
@@ -65,12 +64,7 @@ export const MainPage = () => {
       <DescriptionHead>Select or create a project</DescriptionHead>
       <ProjectsBlock>
         {currentUserBoards.map((board, idx) =>
-          <Link
-            key={board + idx}
-            to={`board/${idx + 1}`}
-          >
-            <BoardComponent data={board} />
-          </Link>
+          <BoardComponent key={board + idx} data={board} />
         )}
         <Button
           text='+ project'
