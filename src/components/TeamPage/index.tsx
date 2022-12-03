@@ -40,10 +40,7 @@ export const TeamPage = () => {
         }, 1000)
       )
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-  console.log("team", team)
 
   return (
     <PageContainer>
@@ -61,7 +58,7 @@ export const TeamPage = () => {
         ) : (
           <PacmanLoader
             color={'#7B61FF'}
-            size={25}
+            size={40}
             aria-label='Loading Spinner'
             data-testid='loader'
           />

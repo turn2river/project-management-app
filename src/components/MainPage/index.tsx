@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { BoardComponent } from './BoardComponent'
+import { auth, db } from '../../firebase_config'
+import { collection, getDocs } from '@firebase/firestore'
+
 import { Button } from '../Button'
 import { Modal } from '../Modal'
 import { BoardForm } from '../Form'
-
-import { dataBoards } from '../../config/dataBoards'
+import { BoardComponent } from './BoardComponent'
 
 import {
   PageContainer,
@@ -21,9 +22,34 @@ import {
   DescriptionHead
 } from '../WellcomePage/styled'
 
+type TBoard = {
+  description: string
+  id: string
+  title: string
+  user: string
+}
+
 export const MainPage = () => {
   const [openModal, setOpenModal] = useState(false)
   const toggleModal = () => setOpenModal(!openModal)
+
+  const [boards, setBoards] = useState([])
+  const boardsCollectionRef = collection(db, 'boards')
+
+  useEffect(() => {
+    const getBoards = async () => {
+      const data = await getDocs(boardsCollectionRef)
+      // @ts-expect-error type it
+      setBoards(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+    }
+
+    getBoards().catch(err => {
+      console.log(err.message)
+    })
+  }, [])
+
+  const currentUserBoards = boards.filter(
+    (board: TBoard) => board.user === auth.currentUser?.email)
 
   return (
     <PageContainer>
@@ -33,12 +59,12 @@ export const MainPage = () => {
         Hey,
         </Header>
         <HeaderColor>
-        username
+          {auth.currentUser?.email}
         </HeaderColor>
       </MainTitle>
-      <DescriptionHead>SElect oR create a project</DescriptionHead>
+      <DescriptionHead>Select or create a project</DescriptionHead>
       <ProjectsBlock>
-        {dataBoards.map((board) =>
+        {/* {dataBoards.map((board) =>
           <Link
             key={board.id}
             to={`board/${board.id}`}
@@ -46,6 +72,14 @@ export const MainPage = () => {
             <BoardComponent data={board} />
           </Link>
 
+        )} */}
+        {currentUserBoards.map((board, idx) =>
+          <Link
+            key={board + idx}
+            to={`board/${idx + 1}`}
+          >
+            <BoardComponent data={board} />
+          </Link>
         )}
         <Button
           text='+ project'
