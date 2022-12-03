@@ -64,15 +64,6 @@ export const MainPage = () => {
       </MainTitle>
       <DescriptionHead>Select or create a project</DescriptionHead>
       <ProjectsBlock>
-        {/* {dataBoards.map((board) =>
-          <Link
-            key={board.id}
-            to={`board/${board.id}`}
-          >
-            <BoardComponent data={board} />
-          </Link>
-
-        )} */}
         {currentUserBoards.map((board, idx) =>
           <Link
             key={board + idx}
