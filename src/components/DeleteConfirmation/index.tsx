@@ -1,5 +1,5 @@
 import { db } from '../../firebase_config'
-import { collection, deleteDoc } from '@firebase/firestore'
+import { doc, deleteDoc } from '@firebase/firestore'
 
 import { Button } from '../Button'
 
@@ -10,18 +10,19 @@ type Props = {
 }
 
 export const ConfirmBlock = ({id}: Props) => {
-  const confrimDelete = (currentId: string) => {
-    const docRef = collection(db, 'boards', currentId)
+  const confirmDelete = (currentId: string) => {
+    // const docRef = collection(db, 'boards', currentId)
+    deleteDoc(doc(db, 'boards', currentId))
 
-    // @ts-expect-error type it
-    deleteDoc(docRef)
+    console.log(currentId)
+    console.log(typeof(currentId))
   }
 
   return (
     <ConfirmationBlock>
       <ConfirmTItle>Are you sure?</ConfirmTItle>
       <Button
-        handleClick={confrimDelete(id)}
+        handleClick={() => confirmDelete(id)}
         text={'Yep'}
       />
       <Button
