@@ -18,7 +18,7 @@ export const FormsInput = ({
   <Fragment>
     <InputBlock>
       <InputField
-        placeholder='type title'
+        placeholder={id}
         type='text'
         id={id}
         className='form-input'

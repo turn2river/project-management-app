@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { BoardComponent } from './BoardComponent'
+import { auth } from '../../firebase_config'
 import { Button } from '../Button'
 import { Modal } from '../Modal'
 import { BoardForm } from '../Form'
@@ -33,12 +34,12 @@ export const MainPage = () => {
         Hey,
         </Header>
         <HeaderColor>
-        username
+          {auth.currentUser?.email}
         </HeaderColor>
       </MainTitle>
-      <DescriptionHead>SElect oR create a project</DescriptionHead>
+      <DescriptionHead>Select or create a project</DescriptionHead>
       <ProjectsBlock>
-        {dataBoards.map((board) =>
+        {/* {dataBoards.map((board) =>
           <Link
             key={board.id}
             to={`board/${board.id}`}
@@ -46,7 +47,7 @@ export const MainPage = () => {
             <BoardComponent data={board} />
           </Link>
 
-        )}
+        )} */}
         <Button
           text='+ project'
           handleClick={toggleModal}

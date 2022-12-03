@@ -61,7 +61,7 @@ export const TeamPage = () => {
         ) : (
           <PacmanLoader
             color={'#7B61FF'}
-            size={25}
+            size={40}
             aria-label='Loading Spinner'
             data-testid='loader'
           />
