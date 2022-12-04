@@ -12,8 +12,8 @@ export interface IFormValues {
   description: string;
   user: string | null | undefined;
 }
-
-export const BoardForm = () => {
+// @ts-expect-error type it
+export const BoardForm = ({ onClose }) => {
   const {
     register,
     handleSubmit,
@@ -26,8 +26,8 @@ export const BoardForm = () => {
     data.user = auth.currentUser?.email
     addDoc(boardsCollectionRef, data)
     console.log(data)
-
     reset()
+    onClose()
   }
 
   return (

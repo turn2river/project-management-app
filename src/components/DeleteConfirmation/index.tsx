@@ -7,15 +7,13 @@ import { ConfirmationBlock, ConfirmTItle } from './styled'
 
 type Props = {
   id: string
+  onClose: () => void,
 }
 
-export const ConfirmBlock = ({id}: Props) => {
+export const ConfirmBlock = ({id, onClose}: Props) => {
   const confirmDelete = (currentId: string) => {
-    // const docRef = collection(db, 'boards', currentId)
     deleteDoc(doc(db, 'boards', currentId))
-
-    console.log(currentId)
-    console.log(typeof(currentId))
+    onClose()
   }
 
   return (
@@ -26,7 +24,7 @@ export const ConfirmBlock = ({id}: Props) => {
         text={'Yep'}
       />
       <Button
-        handleClick={() => {}}
+        handleClick={() => onClose()}
         text={'Nope'}
       />
     </ConfirmationBlock>

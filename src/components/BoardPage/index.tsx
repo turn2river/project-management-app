@@ -30,7 +30,7 @@ export const BoardPage = () => {
         isOpen={openModal}
         toggleModal={toggleModal}
       >
-        <BoardForm />
+        <BoardForm onClose={toggleModal} />
       </Modal>
     </PageContainer>
   )

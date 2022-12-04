@@ -17,6 +17,7 @@ type TModal = {
 // внутрь ModalWindow вставляем нужную форму или что угодно по ситуации
 
 export const Modal = ({ isOpen, children, toggleModal }: TModal) => {
+
   return isOpen ? (
     <ModalContainer>
       <ModalWindow>

@@ -45,7 +45,7 @@ export const BoardComponent = ({
         isOpen={openModal}
         toggleModal={toggleModal}
       >
-        <ConfirmBlock id={id} />
+        <ConfirmBlock id={id} onClose={toggleModal} />
       </Modal>
     </ProjectCard>
   )

@@ -32,7 +32,7 @@ export const MainPage = () => {
   const [openModal, setOpenModal] = useState(false)
   const toggleModal = () => setOpenModal(!openModal)
 
-  const [boards, setBoards] = useState([])
+  const [boards, setBoards] = useState<TBoard[]>([])
   const boardsCollectionRef = collection(db, 'boards')
 
   useEffect(() => {
@@ -63,7 +63,7 @@ export const MainPage = () => {
       </MainTitle>
       <DescriptionHead>Select or create a project</DescriptionHead>
       <ProjectsBlock>
-        {currentUserBoards.map((board, idx) =>
+        {currentUserBoards.length > 0 && currentUserBoards.map((board, idx) =>
           <BoardComponent key={board + idx} data={board} />
         )}
         <Button
@@ -75,7 +75,7 @@ export const MainPage = () => {
         isOpen={openModal}
         toggleModal={toggleModal}
       >
-        <BoardForm />
+        <BoardForm onClose={toggleModal} />
       </Modal>
     </PageContainer>
   )
