@@ -10,6 +10,7 @@ import {
   CardHeader,
   ProjectDesc,
   ProjectName,
+  LinkLabel,
 } from './styled'
 
 type Props = {
@@ -33,14 +34,18 @@ export const BoardComponent = ({
   return (
     <ProjectCard>
       <CardHeader>
-        <Link to={`board/${id}`}>
-          <ProjectName>{title}</ProjectName>
-        </Link>
+        <ProjectName>{title}</ProjectName>
         <ProjectOptions onClick={toggleModal} />
       </CardHeader>
       <ProjectDesc>
         {description}
       </ProjectDesc>
+      <Link to={`board/${id}`}>
+        <LinkLabel>
+        Open Board
+        </LinkLabel>
+      </Link>
+
       <Modal
         isOpen={openModal}
         toggleModal={toggleModal}

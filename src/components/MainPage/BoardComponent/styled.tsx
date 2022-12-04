@@ -54,3 +54,20 @@ export const ProjectDesc = styled.p`
   letter-spacing: -0.02em;
   color: #98A2B3;
 `
+
+export const LinkLabel = styled.div`
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.02em;
+  width: fit-content;
+  padding: 0 12px;
+  height: 28px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8px;
+  background-color: #ECE1FB;
+  color: #4A2FED;
+`
