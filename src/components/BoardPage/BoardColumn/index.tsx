@@ -59,7 +59,7 @@ export const BoardColumn = ({ title }: TBoardColumn) => {
         isOpen={openModal}
         toggleModal={toggleModal}
       >
-        <BoardForm />
+        <BoardForm onClose={toggleModal} />
       </Modal>
     </ColumnWrapper>
   )
