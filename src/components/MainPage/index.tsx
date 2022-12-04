@@ -63,8 +63,8 @@ export const MainPage = () => {
       </MainTitle>
       <DescriptionHead>Select or create a project</DescriptionHead>
       <ProjectsBlock>
-        {currentUserBoards.length > 0 && currentUserBoards.map((board, idx) =>
-          <BoardComponent key={board + idx} data={board} />
+        {currentUserBoards.length > 0 && currentUserBoards.map((board) =>
+          <BoardComponent key={board.id} data={board} />
         )}
         <Button
           text='+ project'
