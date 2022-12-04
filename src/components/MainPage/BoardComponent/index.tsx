@@ -1,3 +1,9 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
+import { ConfirmBlock } from '../../DeleteConfirmation'
+import { Modal } from '../../Modal'
+
 import {
   ProjectCard,
   ProjectOptions,
@@ -20,14 +26,27 @@ export const BoardComponent = ({
     title,
     description,
   },
-}: Props) => (
-  <ProjectCard>
-    <CardHeader>
-      <ProjectName>{title}</ProjectName>
-      <ProjectOptions />
-    </CardHeader>
-    <ProjectDesc>
-      {description}
-    </ProjectDesc>
-  </ProjectCard>
-)
+}: Props) => {
+  const [openModal, setOpenModal] = useState(false)
+  const toggleModal = () => setOpenModal(!openModal)
+
+  return (
+    <ProjectCard>
+      <CardHeader>
+        <Link to={`board/${id}`}>
+          <ProjectName>{title}</ProjectName>
+        </Link>
+        <ProjectOptions onClick={toggleModal} />
+      </CardHeader>
+      <ProjectDesc>
+        {description}
+      </ProjectDesc>
+      <Modal
+        isOpen={openModal}
+        toggleModal={toggleModal}
+      >
+        <ConfirmBlock id={id} />
+      </Modal>
+    </ProjectCard>
+  )
+}
