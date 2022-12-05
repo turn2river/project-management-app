@@ -16,11 +16,6 @@ export const BoardPage = () => {
 
   return (
     <PageContainer>
-      <BoardColumn title='TO DO' />
-      <BoardColumn title='IN PROGRESS' />
-      <BoardColumn title='ON REVIEW' />
-      <BoardColumn title='DONE' />
-      <BoardColumn title='WONT DO' />
       <Button
         text='Create new +'
         handleClick={toggleModal}
