@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { ConfirmBlock } from '../../DeleteConfirmation'
+import { db } from '../../../firebase_config'
+import { doc, deleteDoc } from '@firebase/firestore'
+
+import { DeleteConfirmationBlock } from '../../DeleteConfirmation'
 import { Modal } from '../../Modal'
 
 import {
@@ -31,6 +34,10 @@ export const BoardComponent = ({
   const [openModal, setOpenModal] = useState(false)
   const toggleModal = () => setOpenModal(!openModal)
 
+  const handleDelete = () => {
+    deleteDoc(doc(db, 'boards', id))
+  }
+
   return (
     <ProjectCard>
       <CardHeader>
@@ -50,7 +57,10 @@ export const BoardComponent = ({
         isOpen={openModal}
         toggleModal={toggleModal}
       >
-        <ConfirmBlock id={id} onClose={toggleModal} />
+        <DeleteConfirmationBlock
+          onClose={toggleModal}
+          onDelete={handleDelete}
+        />
       </Modal>
     </ProjectCard>
   )

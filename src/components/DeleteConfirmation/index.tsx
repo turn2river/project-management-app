@@ -1,18 +1,15 @@
-import { db } from '../../firebase_config'
-import { doc, deleteDoc } from '@firebase/firestore'
-
 import { Button } from '../Button'
 
 import { ConfirmationBlock, ConfirmTItle } from './styled'
 
 type Props = {
-  id: string
   onClose: () => void,
+  onDelete: () => void,
 }
 
-export const ConfirmBlock = ({id, onClose}: Props) => {
-  const confirmDelete = (currentId: string) => {
-    deleteDoc(doc(db, 'boards', currentId))
+export const DeleteConfirmationBlock = ({onClose, onDelete}: Props) => {
+  const confirmDelete = () => {
+    onDelete()
     onClose()
   }
 
@@ -20,7 +17,7 @@ export const ConfirmBlock = ({id, onClose}: Props) => {
     <ConfirmationBlock>
       <ConfirmTItle>Are you sure?</ConfirmTItle>
       <Button
-        handleClick={() => confirmDelete(id)}
+        handleClick={() => confirmDelete()}
         text={'Yep'}
       />
       <Button
