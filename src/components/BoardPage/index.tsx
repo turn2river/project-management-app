@@ -49,8 +49,7 @@ export const BoardPage = () => {
   return (
     <PageContainer>
       {currentColumns.length > 0 && currentColumns.map((column) =>
-      // @ts-expect-error type it
-        <BoardColumn key={column.id} data={column} />
+        <BoardColumn key={column.id} title={column.title} />
       )}
       <Button
         text='Create new +'

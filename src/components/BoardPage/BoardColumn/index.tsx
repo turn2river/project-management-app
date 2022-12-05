@@ -16,12 +16,10 @@ import {
 } from './styled'
 
 type TBoardColumn = {
-  boardID: string
   title: string
-  id: string
 }
 
-export const BoardColumn = ({ title, boardID, id }: TBoardColumn) => {
+export const BoardColumn = ({ title }: TBoardColumn) => {
   const count = 0
   const [openModal, setOpenModal] = useState(false)
   const toggleModal = () => setOpenModal(!openModal)
