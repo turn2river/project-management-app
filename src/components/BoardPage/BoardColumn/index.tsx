@@ -16,10 +16,12 @@ import {
 } from './styled'
 
 type TBoardColumn = {
-  title: string,
+  boardID: string
+  title: string
+  id: string
 }
 
-export const BoardColumn = ({ title }: TBoardColumn) => {
+export const BoardColumn = ({ title, boardID, id }: TBoardColumn) => {
   const count = 0
   const [openModal, setOpenModal] = useState(false)
   const toggleModal = () => setOpenModal(!openModal)
@@ -34,22 +36,6 @@ export const BoardColumn = ({ title }: TBoardColumn) => {
         <ColumnOptions />
       </ColumnHeader>
       <ColumnBody>
-        <BoardTicket
-          title='test title'
-          description='test text for ticket'
-        />
-        <BoardTicket
-          title='test title'
-          description='test text for ticket'
-        />
-        <BoardTicket
-          title='test title'
-          description='test text for ticket'
-        />
-        <BoardTicket
-          title='test title'
-          description='test text for ticket'
-        />
       </ColumnBody>
       <Button
         text='+ Card'
@@ -59,7 +45,11 @@ export const BoardColumn = ({ title }: TBoardColumn) => {
         isOpen={openModal}
         toggleModal={toggleModal}
       >
-        <BoardForm onClose={toggleModal} />
+        <BoardForm
+          onClose={toggleModal}
+          isColumn={false}
+          submitData={() => {}}
+        />
       </Modal>
     </ColumnWrapper>
   )

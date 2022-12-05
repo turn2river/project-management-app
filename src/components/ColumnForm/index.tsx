@@ -7,9 +7,10 @@ import { FormBlock } from './styled'
 export interface IFormValues {
   title: string;
   description: string;
+  boardID: string;
 }
 // @ts-expect-error type it
-export const BoardForm = ({ onClose, isColumn, submitData }) => {
+export const ColumnForm = ({ onClose, isColumn, submitData, id }) => {
   const {
     register,
     handleSubmit,
@@ -17,6 +18,7 @@ export const BoardForm = ({ onClose, isColumn, submitData }) => {
   } = useForm<IFormValues>()
 
   const onSubmit: SubmitHandler<IFormValues> = (data) => {
+    data.boardID = id
     submitData(data)
     reset()
     onClose()
