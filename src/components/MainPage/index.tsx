@@ -25,7 +25,6 @@ type TBoard = {
   description: string
   id: string
   title: string
-  user: string
 }
 
 export const MainPage = () => {
@@ -47,9 +46,6 @@ export const MainPage = () => {
     })
   }, [])
 
-  const currentUserBoards = boards.filter(
-    (board: TBoard) => board.user === auth.currentUser?.email)
-
   return (
     <PageContainer>
       <MainTitle>
@@ -63,7 +59,7 @@ export const MainPage = () => {
       </MainTitle>
       <DescriptionHead>Select or create a project</DescriptionHead>
       <ProjectsBlock>
-        {currentUserBoards.length > 0 && currentUserBoards.map((board) =>
+        {boards.length > 0 && boards.map((board) =>
           <BoardComponent key={board.id} data={board} />
         )}
         <Button
