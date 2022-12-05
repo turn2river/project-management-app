@@ -3,14 +3,22 @@ import { ButtonWrapper } from './styled'
 type TButton = {
   text: string,
   handleClick: () => void,
-  customButton?: boolean
+  // customButton?: boolean
+  isColumnButton?: boolean,
+  isDeleteButton?: boolean,
 }
 
-export const Button = ({ text, handleClick, customButton }: TButton) => {
+export const Button = ({
+  text,
+  handleClick,
+  isColumnButton,
+  isDeleteButton
+}: TButton) => {
   return (
     <ButtonWrapper
       onClick={handleClick}
-      isColumnButton={customButton}
+      isColumnButton={isColumnButton}
+      isDeleteButton={isDeleteButton}
     >
       <span>{text}</span>
     </ButtonWrapper>

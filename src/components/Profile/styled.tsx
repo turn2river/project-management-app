@@ -15,7 +15,3 @@ export const ProfileBlock = styled.div`
   align-items: center;
   gap: 20px;
 `
-export const DeleteButton = styled.button`
-  background-color: red;
-  color: antiquewhite;
-`

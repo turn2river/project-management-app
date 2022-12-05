@@ -23,8 +23,9 @@ export const ProfilePage = () => {
           tasks: some tasks
       </ProfileBlock>
       <Button
-        handleClick={() => console.log('banana')}
+        handleClick={() => {}}
         text='delete user'
+        isDeleteButton
       />
     </PageContainer>
   )
