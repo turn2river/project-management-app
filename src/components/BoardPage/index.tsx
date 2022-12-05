@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { BoardColumn } from './BoardColumn'
 import { Button } from '../Button'
-
-import { PageContainer } from './styled'
 import { Modal } from '../Modal'
 import { BoardForm } from '../Form'
+
+import { PageContainer } from './styled'
 
 export const BoardPage = () => {
   //for work with BE in future
@@ -19,7 +18,7 @@ export const BoardPage = () => {
       <Button
         text='Create new +'
         handleClick={toggleModal}
-        customButton
+        isColumnButton
       />
       <Modal
         isOpen={openModal}

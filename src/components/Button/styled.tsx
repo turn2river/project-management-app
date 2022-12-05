@@ -1,6 +1,11 @@
 import styled, { css } from 'styled-components/macro'
 
-export const ButtonWrapper = styled.button<{isColumnButton?: boolean}>`
+type TButtonWrapper = {
+  isDeleteButton?: boolean,
+  isColumnButton?: boolean,
+}
+
+export const ButtonWrapper = styled.button<TButtonWrapper>`
   min-width: 320px;
   height: 49px;
   background: #FCFCFD;
@@ -12,14 +17,24 @@ export const ButtonWrapper = styled.button<{isColumnButton?: boolean}>`
   letter-spacing: -0.02em;
   color: rgba(102, 112, 133, 0.5);
   text-transform: capitalize;
-  
+
   ${({ isColumnButton }) => (
     isColumnButton
       ? css`
-        height: 25px;
         width: 320px;
         font-size: 20px;
         color: #667085;
+      `
+      : ''
+  )};
+
+${({ isDeleteButton }) => (
+    isDeleteButton
+      ? css`
+        width: 320px;
+        font-size: 20px;
+        color: white;
+        background-color: red;
       `
       : ''
   )};

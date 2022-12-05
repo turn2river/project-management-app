@@ -35,7 +35,7 @@ export const Header = ({ isLoggedIn, handleLogout }: THeader) => {
               isSignOut
               onClick={handleLogout}
             />
-            <HeaderButton to='/test'>
+            <HeaderButton to='/profile'>
               <HeaderIcon isProfileEdit/>
             </HeaderButton>
           </Fragment>
