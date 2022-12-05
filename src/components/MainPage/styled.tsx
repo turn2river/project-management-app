@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro'
+import { customScrollbar } from '../../globalStyles'
 
 export const PageContainer = styled.main`
   width: 100%;
@@ -7,6 +8,9 @@ export const PageContainer = styled.main`
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
+  overflow-x: auto;
+
+  ${customScrollbar};
 `
 
 export const MainTitle = styled.div`

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { auth, db } from '../../firebase_config'
-import { collection, getDocs } from '@firebase/firestore'
+import { collection, getDocs, addDoc } from '@firebase/firestore'
 
 import { Button } from '../Button'
 import { Modal } from '../Modal'
@@ -45,6 +45,10 @@ export const MainPage = () => {
       console.log(err.message)
     })
   }, [])
+  // @ts-expect-error type it
+  const submitForm = (data) => {
+    addDoc(boardsCollectionRef, data)
+  }
 
   return (
     <PageContainer>
@@ -71,7 +75,11 @@ export const MainPage = () => {
         isOpen={openModal}
         toggleModal={toggleModal}
       >
-        <BoardForm onClose={toggleModal} />
+        <BoardForm
+          onClose={toggleModal}
+          isColumn={false}
+          submitData={submitForm}
+        />
       </Modal>
     </PageContainer>
   )

@@ -1,9 +1,13 @@
 import { useState } from 'react'
 
+import { db } from '../../../firebase_config'
+import { doc, deleteDoc } from '@firebase/firestore'
+
 import { Button } from '../../Button'
 import { BoardForm } from '../../Form'
 import { Modal } from '../../Modal'
 import { BoardTicket } from './BoardTicket'
+import { DeleteConfirmationBlock } from '../../DeleteConfirmation'
 
 import {
   ColumnBlock,
@@ -16,13 +20,18 @@ import {
 } from './styled'
 
 type TBoardColumn = {
-  title: string,
+  title: string
+  id: string
 }
 
-export const BoardColumn = ({ title }: TBoardColumn) => {
+export const BoardColumn = ({ title, id }: TBoardColumn) => {
   const count = 0
   const [openModal, setOpenModal] = useState(false)
   const toggleModal = () => setOpenModal(!openModal)
+
+  const handleDelete = () => {
+    deleteDoc(doc(db, 'columns', id))
+  }
 
   return (
     <ColumnWrapper>
@@ -31,35 +40,22 @@ export const BoardColumn = ({ title }: TBoardColumn) => {
           <ColumnTitle>{title}</ColumnTitle>
           <ColumnCounter>{count}</ColumnCounter>
         </ColumnBlock>
-        <ColumnOptions />
+        <ColumnOptions onClick={toggleModal} />
       </ColumnHeader>
       <ColumnBody>
-        <BoardTicket
-          title='test title'
-          description='test text for ticket'
-        />
-        <BoardTicket
-          title='test title'
-          description='test text for ticket'
-        />
-        <BoardTicket
-          title='test title'
-          description='test text for ticket'
-        />
-        <BoardTicket
-          title='test title'
-          description='test text for ticket'
-        />
       </ColumnBody>
       <Button
         text='+ Card'
-        handleClick={toggleModal}
+        handleClick={() => {}}
       />
       <Modal
         isOpen={openModal}
         toggleModal={toggleModal}
       >
-        <BoardForm onClose={toggleModal} />
+        <DeleteConfirmationBlock
+          onClose={toggleModal}
+          onDelete={handleDelete}
+        />
       </Modal>
     </ColumnWrapper>
   )
