@@ -49,7 +49,7 @@ export const BoardPage = () => {
   return (
     <PageContainer>
       {currentColumns.length > 0 && currentColumns.map((column) =>
-        <BoardColumn key={column.id} title={column.title} />
+        <BoardColumn key={column.id} title={column.title} id={column.id}/>
       )}
       <Button
         text='Create new +'
