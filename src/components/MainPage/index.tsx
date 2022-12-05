@@ -45,8 +45,8 @@ export const MainPage = () => {
       console.log(err.message)
     })
   }, [])
-  // @ts-expect-error type it
-  const submitForm = (data) => {
+
+  const submitForm = (data: {description: string, title: string}) => {
     addDoc(boardsCollectionRef, data)
   }
 

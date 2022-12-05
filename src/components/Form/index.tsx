@@ -8,8 +8,14 @@ export interface IFormValues {
   title: string;
   description: string;
 }
-// @ts-expect-error type it
-export const BoardForm = ({ onClose, isColumn, submitData }) => {
+
+type TForm = {
+  onClose: () => void
+  isColumn: boolean
+  submitData: SubmitHandler<IFormValues>
+}
+
+export const BoardForm = ({ onClose, isColumn, submitData }: TForm) => {
   const {
     register,
     handleSubmit,

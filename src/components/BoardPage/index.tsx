@@ -19,7 +19,6 @@ type TColumn = {
 
 export const BoardPage = () => {
   const { id: currentBoardId } = useParams()
-  console.log(currentBoardId)
   const [openModal, setOpenModal] = useState(false)
   const toggleModal = () => setOpenModal(!openModal)
 
@@ -40,10 +39,10 @@ export const BoardPage = () => {
 
   const currentColumns = columns.filter(column =>
     column.boardID === currentBoardId)
-  // @ts-expect-error type it
-  const submitForm = (data) => {
+
+  const submitForm = (data: {boardID: string
+    title: string}) => {
     addDoc(columnsCollectionRef, data)
-    console.log(data)
   }
 
   return (

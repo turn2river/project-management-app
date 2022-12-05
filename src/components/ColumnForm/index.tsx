@@ -9,8 +9,15 @@ export interface IFormValues {
   description: string;
   boardID: string;
 }
-// @ts-expect-error type it
-export const ColumnForm = ({ onClose, isColumn, submitData, id }) => {
+
+type TForm = {
+  onClose: () => void
+  isColumn: boolean
+  submitData: SubmitHandler<IFormValues>
+  id?: string
+}
+
+export const ColumnForm = ({ onClose, isColumn, submitData, id }: TForm) => {
   const {
     register,
     handleSubmit,
@@ -18,7 +25,9 @@ export const ColumnForm = ({ onClose, isColumn, submitData, id }) => {
   } = useForm<IFormValues>()
 
   const onSubmit: SubmitHandler<IFormValues> = (data) => {
-    data.boardID = id
+    if (id) {
+      data.boardID = id
+    }
     submitData(data)
     reset()
     onClose()
