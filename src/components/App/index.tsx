@@ -16,6 +16,7 @@ import { WellcomePage } from '../WellcomePage'
 import { MainPage } from '../MainPage'
 import { TeamPage } from '../TeamPage'
 import { BoardPage } from '../BoardPage'
+import { ProfilePage } from '../Profile'
 
 import { auth } from '../../firebase_config'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
@@ -73,7 +74,14 @@ export const App = () => {
             path='/team'
             element={<TeamPage />}
           />
-          <Route path='/main/board/:id' element={<BoardPage />} />
+          <Route
+            path='/main/board/:id'
+            element={<BoardPage />}
+          />
+          <Route
+            path='/profile'
+            element={<ProfilePage />}
+          />
         </Routes>
         <Footer />
       </AppContainer>
