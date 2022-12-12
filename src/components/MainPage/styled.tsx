@@ -8,9 +8,6 @@ export const PageContainer = styled.main`
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
-  overflow-x: auto;
-
-  ${customScrollbar};
 `
 
 export const MainTitle = styled.div`
@@ -31,6 +28,11 @@ export const HeaderColor = styled(Header)`
 `
 
 export const ProjectsBlock = styled.div`
+  width: 100%;
   display: flex;
-  gap: 40px;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+
+  ${customScrollbar};
 `

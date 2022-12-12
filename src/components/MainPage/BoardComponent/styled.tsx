@@ -1,17 +1,13 @@
 import styled from 'styled-components/macro'
 
 export const ProjectCard = styled.div`
-  width: 320px;
+  min-width: 300px;
   height: 176px;
   background: #FCFCFD;
   border: 1px solid rgba(102, 112, 133, 0.5);
   border-radius: 8px;
   padding: 20px;
-  cursor: pointer;
-
-  &:hover {
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
-  }
+  position: relative;
 `
 
 export const CardHeader = styled.div`
@@ -25,10 +21,7 @@ export const ProjectName = styled.span`
   font-weight: 700;
   font-size: 20px;
   max-width: 250px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  padding-right: 5px;
+  padding-right: 20px;
   letter-spacing: -0.02em;
   color: #1D2939;
   text-transform: uppercase;
@@ -41,6 +34,9 @@ export const ProjectOptions = styled.div`
   background-size: contain;
   margin-left: auto;
   cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 9px;
 
   &:hover {
     transform: scale(1.1);
@@ -53,21 +49,21 @@ export const ProjectDesc = styled.p`
   line-height: 120%;
   letter-spacing: -0.02em;
   color: #98A2B3;
+  padding-bottom: 20px;
 `
 
+// reaname to openBoard if there will be no options
 export const LinkLabel = styled.div`
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 16px;
-  letter-spacing: -0.02em;
-  width: fit-content;
-  padding: 0 12px;
-  height: 28px;
-  border-radius: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 8px;
-  background-color: #ECE1FB;
-  color: #4A2FED;
+  background: #FCFCFD;
+  border: 1px solid rgba(102,112,133,0.5);
+  border-radius: 8px;
+  padding: 5px;
+  display: inline-block;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+
+  &:hover {
+    border-color: #000;
+  }
 `

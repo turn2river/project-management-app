@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { db } from '../../firebase_config'
-import { collection, getDocs, addDoc } from '@firebase/firestore'
+import { collection, addDoc, onSnapshot } from '@firebase/firestore'
 
 import { Button } from '../Button'
 import { Modal } from '../Modal'
@@ -25,17 +25,11 @@ export const BoardPage = () => {
   const [columns, setColumns] = useState<TColumn[]>([])
   const columnsCollectionRef = collection(db, 'columns')
 
-  useEffect(() => {
-    const getColumns = async () => {
-      const data = await getDocs(columnsCollectionRef)
-      // @ts-expect-error type it
-      setColumns(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
-    }
-
-    getColumns().catch(err => {
-      console.log(err.message)
-    })
-  }, [])
+  console.log(columns)
+  useEffect(() => onSnapshot(collection(db, 'columns'), (snapshot) =>
+  // @ts-expect-error type it
+    setColumns(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
+  ),[])
 
   const currentColumns = columns.filter(column =>
     column.boardID === currentBoardId)
@@ -48,7 +42,11 @@ export const BoardPage = () => {
   return (
     <PageContainer>
       {currentColumns.length > 0 && currentColumns.map((column) =>
-        <BoardColumn key={column.id} title={column.title} id={column.id}/>
+        <BoardColumn
+          key={column.id}
+          title={column.title}
+          id={column.id}
+        />
       )}
       <Button
         text='Create new +'
@@ -56,6 +54,7 @@ export const BoardPage = () => {
         isColumnButton
       />
       <Modal
+        title='create column'
         isOpen={openModal}
         toggleModal={toggleModal}
       >

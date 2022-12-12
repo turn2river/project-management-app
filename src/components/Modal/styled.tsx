@@ -16,6 +16,13 @@ export const ModalContainer = styled.div`
   backdrop-filter: blur(2px);
 `
 
+export const ModalHeader = styled.div`
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+`
+
 export const ModalWindow = styled.div`
   min-width: 340px;
   min-height: 260px;
@@ -32,8 +39,14 @@ export const ModalCloseBtn = styled.div`
   background-repeat: no-repeat;
   width: 20px;
   height: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
   cursor: pointer;
+`
+
+export const ModalTitle = styled.div`
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 700;
 `
