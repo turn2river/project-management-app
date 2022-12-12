@@ -14,13 +14,6 @@ import {
   MembersList,
 } from './styled'
 
-// const [newName, setNewName] = useState('')
-// const [newAge, setNewAge] = useState('')
-
-// const createUser = async () => {
-//   await addDoc(usersCollectionRef, {name: newName, age: newAge})
-// }
-
 export const TeamPage = () => {
   const [team, setTeam] = useState([])
   const teamCollectionRef = collection(db, 'team')
@@ -35,9 +28,7 @@ export const TeamPage = () => {
 
     if (team.length === 0) {
       getTeam().then(() =>
-        setTimeout(() => {
-          setLoading(true)
-        }, 1000)
+        setLoading(true)
       )
     }
   }, [])

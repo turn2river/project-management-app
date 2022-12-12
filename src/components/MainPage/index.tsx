@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { auth, db } from '../../firebase_config'
-import { collection, getDocs, addDoc } from '@firebase/firestore'
+import { collection, onSnapshot, addDoc } from '@firebase/firestore'
 
 import { Button } from '../Button'
 import { Modal } from '../Modal'
@@ -34,17 +34,10 @@ export const MainPage = () => {
   const [boards, setBoards] = useState<TBoard[]>([])
   const boardsCollectionRef = collection(db, 'boards')
 
-  useEffect(() => {
-    const getBoards = async () => {
-      const data = await getDocs(boardsCollectionRef)
-      // @ts-expect-error type it
-      setBoards(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
-    }
-
-    getBoards().catch(err => {
-      console.log(err.message)
-    })
-  }, [])
+  useEffect(() => onSnapshot(collection(db, 'boards'), (snapshot) =>
+  // @ts-expect-error type it
+    setBoards(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
+  ),[])
 
   const submitForm = (data: {description: string, title: string}) => {
     addDoc(boardsCollectionRef, data)
@@ -72,6 +65,7 @@ export const MainPage = () => {
         />
       </ProjectsBlock>
       <Modal
+        title='create new board'
         isOpen={openModal}
         toggleModal={toggleModal}
       >

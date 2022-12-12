@@ -4,9 +4,7 @@ import { db } from '../../../firebase_config'
 import { doc, deleteDoc } from '@firebase/firestore'
 
 import { Button } from '../../Button'
-import { BoardForm } from '../../Form'
 import { Modal } from '../../Modal'
-import { BoardTicket } from './BoardTicket'
 import { DeleteConfirmationBlock } from '../../DeleteConfirmation'
 
 import {

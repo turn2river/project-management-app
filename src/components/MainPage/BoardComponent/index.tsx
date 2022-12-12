@@ -54,6 +54,7 @@ export const BoardComponent = ({
       </Link>
 
       <Modal
+        title='delete board'
         isOpen={openModal}
         toggleModal={toggleModal}
       >

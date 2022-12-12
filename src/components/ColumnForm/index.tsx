@@ -47,7 +47,7 @@ export const ColumnForm = ({ onClose, isColumn, submitData, id }: TForm) => {
       />}
       <Button
         handleClick={handleSubmit(onSubmit)}
-        text={'create new!'}
+        text='create new!'
       />
     </FormBlock>
   )
